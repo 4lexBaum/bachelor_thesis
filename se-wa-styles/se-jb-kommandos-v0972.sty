@@ -1062,10 +1062,9 @@ werden, sofern keine anders lautende Genehmigung der Ausbildungsstätte vorliegt
 % end 2013-01-26 Algorithmenverzeichnis
 
 
-
 \newcommand{\seAbkuerzungenVerzeichnisname}{Abk\"urzungsverzeichnis}
 \newcommand{\seAbkEinzugLabel}{0mm}
-\newcommand{\seAbkBreiteLabel}{4em}
+\newcommand{\seAbkBreiteLabel}{6em}
 \newcommand{\seAbkAbstandEintrag}{0.25}
 \newcommand{\seAbkNewpage}{}
 \newcommand{\seAbkAbstandVerzeichnis}{}
@@ -1093,7 +1092,6 @@ werden, sofern keine anders lautende Genehmigung der Ausbildungsstätte vorliegt
 \printglossary[type=\acronymtype,style=seGloList,title=\seAbkuerzungenVerzeichnisname,toctitle=\seAbkuerzungenVerzeichnisname]%
 \vspace{0mm}%
 }
-
 
 \newcommand{\seSymbolverzeichnisLabelwidth}{1cm}
 
@@ -1180,6 +1178,7 @@ werden, sofern keine anders lautende Genehmigung der Ausbildungsstätte vorliegt
 %\renewcommand{\seVerzeichnisebene}{#1}%
 }{}
 \ifthenelse{\equal{#2}{abk}}{\sePrintAbkuerzungsverzeichnis{}}{}
+\newpage
 \ifthenelse{\equal{#2}{sym}}{\sePrintSymbolverzeichnis{}}{}
 \ifthenelse{\equal{#2}{abb}}{\sePrintAbbildungsverzeichnis{}}{}
 \ifthenelse{\equal{#2}{tab}}{\sePrintTabellenverzeichnis{}}{}

@@ -6,6 +6,7 @@
 % Definition neuer Kommandos, um halbwegs komfortabel nach Theisen zitieren zu k\"onnen, sowohl 
 % im Text als auch in Fu{\ss}noten
 \RequirePackage[%
+ibidem=strict,
 authorformat={italic},%
 annotatorformat=italic,
 titleformat=all,%
@@ -15,19 +16,26 @@ see,%
 commabeforerest,%
 ]{jurabib}   
 
+
+\AddTo\bibsgerman{
+\renewcommand*{\ibidemname}{Ebd.}
+\renewcommand*{\ibidemmidname}{ebd.}
+}
 \renewcommand*{\jbauthorfont}{\textit}
 \renewcommand*{\biblnfont}{\scshape\textit}
 \renewcommand*{\bibfnfont}{\normalfont\textit}
 \renewcommand*{\bibelnfont}{\normalfont\textit}
 \renewcommand*{\bibefnfont}{\normalfont\textit}
 \renewcommand*{\jbcitationyearformat}[1]{#1}
+
+
    
 %
 % Achtung: diese Definition ist notwendig, um in den Eintr\"agen des Literaturverzeichnisses
 %                die Angabe des Kurztitels zu integrieren
 %   
 \makeatletter   
-\renewcommand*{\bibansep}{\bibfnfont{\normalfont~[\jb@@shorttitle, \jb@@year]: }}% Mod fr Theisen
+\renewcommand*{\bibansep}{\bibfnfont{\normalfont~[\jb@@shorttitle, \jb@@year]: }}% Mod f�r Theisen
 \makeatother   
       
 % Setzen einer Literaturreferenz in einer Fu{\ss}note
