@@ -5,22 +5,121 @@ Nachdem die Regressionsanalyse in \vref{dmmethoden} als Data-Mining-Methode für
 
 \subsection{Regressionsanalyse}
 \label{ra}
+\subsection{Allgemein}
+Die Regression (lat. \textit{regredi} für umkehren, zurückkehren) beinhaltet im Allgemeinen die Analyse einer abhängigen Variablen von einer oder mehreren unabhängigen Variable.\seFootcite{Vgl.}{S. 5}{Studenmund.2014} Dabei drücken die unabhängigen Variablen die abhängige Variable mittels einer \textit{Regressionsgleichung} aus.\seFootcite{Vgl.}{S. 475}{Fahrmeir.2007} Die in der mathematischen Gleichung beinhaltenden Parameter (auch \textit{Regressoren} genannt) müssen so gewählt und justiert werden, dass diese bestmöglich zu den vorhanden Daten passen.\seFootcite{Vgl.}{S. 68}{Gunther.2014}\seFootcite{Vgl.}{S. 1-2}{Schimek.2000} Diese rein datenbasierte mathematische Beschreibung hat ihren Ursprung in einer Studie von Francis Galton\footnote{britischer Naturforscher im 19. Jahrhundert - prägte erstmals den Begriff der \textit{Regression}}, in der die Körpergröße von Kindern in Bezug zu denen ihrer Eltern analysiert wurde.\seFootcite{Vgl.}{S. 68}{Gunther.2014} Anhand der vorliegenden Problemstellung dieser Arbeit, lässt sich das Vorgehen der Regressionsanalyse beispielhaft demonstrieren:
 
-\subsubsection{Methode der kleinste Quadrate}
+Es wird versucht die Wahrscheinlichkeit eines Torerfolges (\textit{=abhängige Variable}), durch mehrere Faktoren, wie der Distanz oder des Winkel zum Tor bzw. der Koordinaten des Schusses (\textit{=unabhängige Variablen}), mittels einer Funktion (\textit{=Regressionsgleichung}), zu ermitteln. 
 
-\subsubsection{Regressionsmodelle}
+Anhand der \textit{linearen Regression} sollen die grundlegende Bestandteile aller Regressionsmodelle erläutert werden. Um eine Punktewolke durch eine Funktion $\hat{f}$ zu approximieren, bedient man sich der quadratischen Abstände der Punkte zur Funktion und versucht diese durch die \gls{mdkq} zu minimieren.\seFootcite{Vgl.}{S. 44}{Hastie.2016} Die lineare Regressionsfunktion dabei liegt in der Form 
 
-\paragraph{Lineare Regression}
+\begin{equation}
+	\hat{f}(x) = \hat{\alpha} \cdot x + \hat{\beta}
+	\label{lrf}
+\end{equation}
 
-\paragraph{Multiple Lineare Regression}
+vor.\seFootcite{Vgl.}{S. 476}{Fahrmeir.2007} Wie in \vref{lr} exemplarisch dargestellt, werden die Abstände zwischen den Punkten und der Funktion ($y_i -  \hat{y}(x_i) \rightarrow i= 1,...,m$) summiert, woraus sich die \textit{Summe der Fehlerquadrate} (=\gls{rss}) ergibt:\seFootcite{Vgl.}{S. 37}{Studenmund.2014}
 
-\paragraph{Nichtparametrische Regression}
+\begin{equation}
+	RSS = \sum\limits_{i=1}^n (y_i - \hat{y}(x_i))^2
+\end{equation}
 
+Durch die Berechnung der \gls{rss} wird die Distanz zwischen den Daten und dem Modell berechnet. Um eine möglichst optimale Anpassung des Modells an die Daten dabei zu erreichen, müssen die Parameter $\hat{\alpha}$ und $\hat{\beta}$ so gewählt werden, dass die Summe der Fehlerquadrate minimal ist.\seFootcite{Vgl.}{S. 69}{Gunther.2014} Es gilt:
+
+\begin{equation}
+	\min\limits_{a,b\in\mathbb{R}} RSS
+\end{equation}
+
+Das übliche Vorgehen für die Auffindung eines Minimums einer Funktion mit mehreren Variablen -- hier RSS($\hat{\alpha},\hat{\beta}$) -- wird auch hier angewendet, um mit Hilfe der partiellen Ableitung die Parameter ausfindig zu machen:\seFootcite{Vgl.}{S. 39}{Studenmund.2014}
+
+\begin{equation}
+	\hat{\alpha} = \frac{\sum\limits_{i=1}^m x_i y_i - m \overline{x} \overline{y}}{\sum\limits_{i=1}^m x^2_i - m \overline{x}^2}
+\end{equation}
+
+\begin{equation}
+	\hat{\beta} = \overline{y} - \hat{\alpha} \overline{x}^2
+\end{equation}
+
+Diese grundlegenden Bestandteile finden sich in allen Regressionsmodellen wieder, die in \vref{rm} kurz vorgestellt werden. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Regressionsmodelle}\label{rm}
+In der Praxis haben sich durch den allgemein Ansatz der Regression eine Vielzahl von Modellen etabliert, die je nach Anwendungsfall ihre Verwendungen finden:
+
+
+\begin{itemize}
+
+%%%%%%%%%%%%% LINEARE REGRESSION %%%%%%%%%%%%%%%%%%
+
+\item \textbf{Lineare Regression}
+\\ Am bekanntesten ist die lineare Regression, die auch oft als \glqq Ausgleichsgerade\grqq~bezeichnet wird und zur Prognose einer interessierenden Größe $y$, in Abhängigkeit \textit{einer} bekannten Größe $x$, angewendet wird.\seFootcite{Vgl.}{S. 475}{Fahrmeir.2007} Eine Funktion $\hat{f}(x)$ wie \vref{lrf} ist von ihren Regressoren $\alpha$ und $\beta$ \textit{linear} abhängig und heißt deshalb \textit{lineare Regressionsfunktion}.\seFootcite{Vgl.}{S. 68}{Gunther.2014} In \vref{lr} ist eine solche Funktion beispielhaft dargestellt.
+\input{\seWaPathText/BA/Theorie/figure_lr}
+
+
+%%%%%%%%%%%%% NICHT LINEARE REGRESSION %%%%%%%%%%%%%%%%%%
+
+\item \textbf{Nichtlineare Regression}
+
+In vielen realen Anwendungen kann die Regressionsfunktion nicht durch die Linearkombination der Regressionskoeffizienten berechnet werden, da diese in \textit{linearer} Weise von den Regressoren abhängt. Allgemein lässt sich dieses Modell mit $\boldsymbol{x} = (x_1,...,x_n)$ und $\boldsymbol{a} = (a_1,...,x_s)$ wie folgt ausdrücken:\seFootcite{Vgl.}{S. 85}{Gunther.2014}
+
+\begin{equation}
+	\hat{f}(\boldsymbol{x}) = f(\boldsymbol{x},\boldsymbol{a})
+\end{equation}
+
+In \vref{nlr} liegen die Daten in einem oszillierenden, sinusförmigen Muster vor und können folglich mit der allgemeinen Sinusfunktion beschrieben werden ($\hat{f} = \alpha_0 \cdot \sin(\alpha_1 \cdot (x-\alpha_2))$). Bei dieser nichtlinearen Regressionsfunktionen können die Regressoren dazu verwendet werden, die Funktion möglichst genau an die Daten anzupassen, wobei $\alpha_0$ die Amplitude bestimmt, $\alpha_1$ die Periode und $\alpha_2$ die Sinus-Funktion entlang der $x$-Achse verschiebt.\seFootcite{Vgl.}{S. 85-86}{Gunther.2014} Auch hier lässt sich mit Hilfe des Standardmodells, der Minimierung der kleinsten Quadrate, die Parameter bestimmen.\seFootcite{Vgl.}{S. 509}{Fahrmeir.2007}
+
+\input{\seWaPathText/BA/Theorie/nlr}
+
+
+%%%%%%%%%%%%% MULTIPLE REGRESSION %%%%%%%%%%%%%%%%%%
+
+\item \textbf{Multiple Regression}
+In den meisten technischen und wirtschaftlichen Anwendungsfällen ist die Zielvariable $y$ von mehr als einer unabhängigen Variable abhängig. Dieser Fall kann durch die \textit{multiple} oder auch \textit{multivariate Regression} behandelt werden, wobei sich die Regressionsfunktion mit den unabhängigen Variablen ($\boldsymbol{x} = (x_1,...,x_n)$) und $f_i$ beliebigen reellen Funktionen im Allgemeinen wie folgt ausdrücken lässt:\seFootcite{Vgl.}{S. 41-42}{Studenmund.2014}
+
+\begin{equation}
+	\hat{f}(\boldsymbol{x}) = \alpha_0 + \alpha_1 f_1(\boldsymbol{x}) + \alpha_2 f_1(\boldsymbol{x}) + ... + \alpha_s f_s(\boldsymbol{x}) 
+\end{equation}
+
+Die Vorgehensweise zur Ermittlung der Parameter ist dabei dieselbe wie bei der linearen Regression - auch hier wird die Methode der Minimierung der kleinsten Quadrate angewendet. Liegt beispielsweise eine Punktewolke wie in \vref{mr} vor, kann diese durch die Funktion
+
+\begin{equation}
+	\hat{f}(x_1,x_2) = \alpha_0 + \alpha_1 x_1 + \alpha_2 x_2
+\end{equation}
+
+beschrieben werden, wobei der Regressor $\alpha_0$ die Verschiebung der Fläche entlang der $y$-Achse angibt, $\alpha_1$ die Steigung der Variable $x_1$ sowie $\alpha_2$ die Steigung von $x_2$. 
+
+\input{\seWaPathText/BA/Theorie/mr}
+
+%%%%%%%%%%%%% NICHT PARAMETRISCHE REGRESSION %%%%%%%%%%%%%%%%%%
+
+\item \textbf{Nichtparametrische Regression}
+In vielen Anwendungen lässt sich nicht von vornherein eine parametrische Spezifikation der Regressionsfunktion angeben. In den Beispielen zuvor -- ob linear oder nichtlinear -- wurde jeweils ein konkreter Ausdruck vorgegeben, um mittels Minimierung die Funktion an die Daten anzupassen. Betrachtet man \vref{pr}, so lässt sich schnell erkennen, dass es dazu keine passende mathematische Funktion geben wird.\seFootcite{Vgl.}{S. 91}{Gunther.2014} Die nichtparametrischen Regression verfolgt das Ziel, die Funktion $\hat{f}$ möglichst genau zu schätzen. Etabliert haben sich Methoden wie \textit{Spline-Regressionen} und \textit{lokale Regressionsschätzer}, die jedoch aufgrund ihres numerischen Aufwand nicht hier nicht detailliert beschrieben werden und selbst nur durch die Verwendung von statistischen Programmpaketen (siehe \vref{matlab}) benutzt werden können.\seFootcite{Vgl.}{S. 510}{Fahrmeir.2007}
+
+\input{\seWaPathText/BA/Theorie/pr}
+\textit{\glqq Splinefunktionen gehören zu den wichtigsten und verbreitetsten Regressionsmethoden und werden quer durch alle Disziplinen z.B. in Betriebswirtschaft, Informatik, Bildverarbeitung, Medizin, Maschinen.\grqq}\seFootcite{}{S.93}{Gunther.2014} 
+
+Der Gedanke der \textit{smoothing splines}\footnote{Die englische Übersetzung bedeutet so viel wie \textit{glättende Verzahnung}} ist, den Bereich der $x$-Werte durch ein feines Gitter so zu unterteilen, das sich die angrenzenden Intervalle durch glatt miteinander verbundene Polynomfunktionen niedrigen Grades (oftmals kubisches Polynom) approximieren lassen.\seFootcite{Vgl.}{S. 510}{Fahrmeir.2007} In \vref{splineZoom} ist dazu die Punktewolke aus \vref{pr} im Wertebereich zwischen $x_1$ und $x_2$ genauer dargestellt, um das Resultat dieses Verfahren besser betrachten zu können. Legt man den Augenmerk nun nur noch auf den Intervallbereich $I_i$, lässt sich dieser Bereich durch ein kubisches Polynom ausdrücken. Werden all diese Intervalle als eigene Funktionen definiert und stückweise an den \glqq Knotenpunkten\grqq~ stetig und differenziert aneinander gesetzt, erhält man die gesuchte Regressionsfunktion $\hat{f}(x)$.\seFootcite{Vgl.}{S. 510}{Fahrmeir.2007}
+
+\input{\seWaPathText/BA/Theorie/splineZoom}
+
+\end{itemize}
+
+\paragraph{Bewertung} Wie in der Einleitung dieses Kapitels beschrieben, wird die Wahrscheinlichkeit für einen Torerfolg durch mehrere Faktoren, wie beispielsweise die Koordinaten des Schusses, beeinflusst, wodurch die \textit{lineare Regression} für die Modellierung ausgeschlossen werden kann, da die Zielvariable in der vorliegenden Problemstellung von mindestens zwei unabhängigen Variablen abhängt. Im multiplen Regressionsmodell können mehrere unabhängige Variablen behandelt werden, jedoch müsste auch hier von vornherein eine parametrische Spezifikation der Funktion angegeben werden. Eine erste mögliche Vorstellung in Bezug wäre dazu die Funktion $\hat{f}(x_1,x_2) = \alpha_0 e^{-x_1} \cdot \alpha_1\sin(\alpha_2 \cdot (\pi x_2 - \alpha_3))$, die in \vref{vermutung} abgebildet ist. 
+\input{\seWaPathText/BA/Theorie/vermutung}
+
+Die Parameter $x_1$ (=Breite des Spielfeldes) und $x_2$ (=Länge des Spielfeldes) geben hierbei die Koordinaten des Schusses an, wobei das gegnerische Tor auf der $x_1$-Achse -- also bei $x_2=0$ -- mittig platziert ist. Die Vermutung ist, dass sich die Wahrscheinlichkeit $y$ mit zunehmender Nähe zum Tor steigt, wodurch die Fläche in Richtung Tor stetig erhöht und eine Art \glqq Gipfel\grqq~ entsteht. Bereits bei der Betrachtung dieser Vermutung, ist zu erkennen, das eine \glqq herkömmliche\grqq mathematische Funktion zu einer zu sehr groben Glättung führt. Beispielsweise findet ein Schuss seitlich neben dem Tor auf der Grundlinie statt, dann ist allein aufgrund des Winkels ein Torerfolg fast unmöglich und die Wahrscheinlichkeit somit falsch repräsentiert. Folglich ist es sinnvoll, \textit{nichtparametrische Regressionsfunktionen} in Form von \textit{Splines} zu verwenden, um eine exakte Anpassung der Funktion an die vorliegenden Daten zu erreichen. Eine detaillierte Gegenüberstellung der multiplen und nichtparametrischen Regression wird innerhalb der Umsetzung in \vref{mdf} aufgezeigt.
+
+%%%%%%%%%%%%% BESTIMMTHEITSMASS %%%%%%%%%%%%%%%%%%
 \subsubsection{Bestimmtheitsmaß}
+Um die Qualität der Anpassung eines Modells an die Daten zu überprüfen, stellt der graphische Vergleich zwischen Modell und Daten die einfachste Möglichkeit da. Betrachten wir nochmals die Sinus-Funktion aus \vref{nlr}, so wird schnell klar, dass man kein Regressionsexperte sein muss, um feststellen zu können, dass das Modell sehr gut an die Daten angepasst wurde.\seFootcite{Vgl.}{S.71}{Gunther.2014}  Für vernünftige Prognosen wird jedoch das Bestimmtheitsmaß $R^2$ verwendet, welches den \textit{goodness of fit}(\textit{dt. Anpassungsgüte}) misst.\seFootcite{Vgl.}{S. 51}{Studenmund.2014} Die Qualität wird dabei auf einer Skala zwischen 0 und 1 dargestellt, wobei ein sehr hoher Wert für eine gute Anpassung und ein niedriger Wert für eine schlechte Anpassung des Modells an die Daten spricht. Diese Skala ist nützlich um verschiedene Regressionsmodelle miteinander vergleichen zu können.\seFootcite{Vgl.}{S.71}{Gunther.2014} Das Bestimmtheitsmaß $R^2$ misst dabei zu welchem prozentualen Anteil die Abweichung der gemessenen abhängigen Variablen durch die unabhängigen Variablen des Modells erklärt wird und ist formal wie folgt definiert:\seFootcite{Vgl.}{S.118}{Daroczi.2015}\seFootcite{Vgl.}{S.72}{Gunther.2014}\seFootcite{Vgl.}{S. 51}{Studenmund.2014}
 
-\subsection{MatLab}
-\label{matlab}
+\begin{equation}
+R^2 = 1 - \frac{\sum\limits_{i=1}^n (y_i - \hat{y}_i)^2}{\sum\limits_{i=1}^n (y_i - \overline{y})^2}= \frac{RSS}{TSS}
+\label{r2}
+\end{equation}
 
-\subsubsection{Allgemein}
+Wie in \vref{r2} zu erkennen, kann das $R^2$ auch als Verhältnis von \gls{rss} zu \gls{tss}, also der erklärten Variation zur gesamten Abweichungsqudratsumme, dargestellt werden.\seFootcite{Vgl.}{S. 48}{Studenmund.2014}\seFootcite{Vgl.}{S.119}{Daroczi.2015} Die Hinzunahme von weiteren erklärenden $x$-Variablen führt im schlechtesten Fall dazu, dass das Bestimmtheitsmaß gleich bleibt, unabhängig davon ob die zusätzlichen Variablen die Qualität des Modells verbessern. Man spricht dabei von einer \textit{Überparametrisierung} des Modells.\seFootcite{Vgl.}{S. 160}{Cleff.2008} Um diesen Fall zu vermeiden, verwendet man in der Praxis das \textit{korrigierte Bestimmtheitsmaß} $\overline{R}^2$ (\textit{engl.: adjusted $R^2$}), dass die Hinzunahme von Variablen mit geringer Erklärungskraft bestraft.\seFootcite{Vgl.}{S. 161}{Cleff.2008} Eine zusätzliche Variable sollte also nur dann aufgenommen werden, wenn der dadurch gewonnene Erklärungswert für das Modell größer als der \textit{Bestrafungsabschlag} des korrigierten Bestimmtheitsmaßes ist. Das $\overline{R}^2$ kann daher zum Vergleich von Regressionsmodellen mit unterschiedlicher Anzahl von unabhängigen Variablen herangezogen werden, um die Anpassungsgüte des Modells an die Daten zu messen.\seFootcite{Vgl.}{S. 56}{Studenmund.2014} Die ursprüngliche Interpretation von $R^2$ geht jedoch durch Bestrafung der Hinzunahme weiterer Parameter weites gehend verloren, sodass beide Bestimmtsheitsmaße für eine Bewertung herangezogen werden sollten.\seFootcite{Vgl.}{S. 161}{Cleff.2008} 
 
-\subsection{Regressionsanalyse}
+In diesem Kontext spricht man in der Fachsprache auch von \textbf{Overfitting}, einer Überanpassung des Modells durch Hinzunahme irrelevanter Variablen, die zu einer unnötigen Steigerung der Komplexität führen. Das Modell scheint dabei für die vorliegenden Daten exakt zu passen, scheitert jedoch bei der Prognose von noch ungesehenen Daten. \textbf{Underfitting} ist die gegenteilige Bezeichnung und beschreibt ein zu simpel gewähltes Modell, welches zu wenig relevante Regressoren enthält und relativ schlecht an die Daten angepasst ist.\seFootcite{Vgl.}{S. 470}{Cios.2007} 
+
+
