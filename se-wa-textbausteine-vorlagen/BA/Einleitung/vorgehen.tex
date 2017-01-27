@@ -22,15 +22,25 @@ Der Fokus liegt dabei vor allem im Schritt des Data Minings, in dem auch die Fun
 
 %%%%%%%%%%%%%%%%%% Anforderungen %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{3}{|c|}{\textbf{Anforderungen}}\\\hline\hline \textbf{Nr.} & \textbf{Beschreibung} & \textbf{vorgegeben}\\\hline}
+\tablehead{\hline \textbf{Nr.} & \textbf{Beschreibung} & \textbf{vorgegeben}\\}
+\tabletail{\hline \multicolumn{3}{|r|}{\textsl{Fortsetzung nächste Seite}}\\\hline }
 \tablelasttail{}
 \bottomcaption{Auflistung der Anforderungen\label{tab:anf}}
 \begin{center}%
-\begin{supertabular}{ | P{2cm} | P{5cm} | P{5cm} |}
-\vspace*{1mm}\textbf{1.} 	& \vspace*{1mm}A  	& 	ja\\
+\begin{supertabular}{ | P{1.5cm} | P{8cm} | P{2.5cm} |}
+\vspace*{1mm}\textbf{1.} 	& \vspace*{1mm}Input-Variablen der Funktion sind die Koordinaten eines Schusses& \vspace*{1mm}	\textit{ja}\\
 \hline
-\vspace*{1mm}\textbf{2.}	& \vspace*{1mm}B 	& ja 	\\
+\vspace*{1mm}\textbf{2.}	& \vspace*{1mm}Output-Variabel der Funktion ist die Wahrscheinlichkeit zwischen 0 und 1	& \vspace*{1mm}\textit{ja} 	\\
 \hline
-\vspace*{1mm}\textbf{3.}	& \vspace*{1mm}C  	& nein  	\\
+\vspace*{1mm}\textbf{3.}	& \vspace*{1mm}Es dürfen nur Schüsse berücksichtigt werden, die während des \glqq laufenden\grqq~ Spiels abgegeben wurden  	& \vspace*{1mm}\textit{ja}  	\\
+\hline
+\vspace*{1mm}\textbf{4.}	& \vspace*{1mm}Eigentore müssen ausgeschlossen werden\glqq laufenden\grqq~ Spiels abgegeben wurden  	& \vspace*{1mm}\textit{nein}  	\\
+\hline
+\vspace*{1mm}\textbf{5.}	& \vspace*{1mm}Geblockte Schüsse müssen ausgeschlossen werden\glqq laufenden\grqq~Spiels abgegeben wurden  	& \vspace*{1mm}\textit{ja}  	\\
+\hline
+\vspace*{1mm}\textbf{6.}	& \vspace*{1mm}Der Ursprung der Funktion (\textit{P(0,0,0)}) liegt in der Mitte der gegnerischen Torlinie & \vspace*{1mm}\textit{ja}  	\\
+\hline
+\vspace*{1mm}\textbf{7.}	& \vspace*{1mm}Die Funktion muss symmetrisch zu beiden Spielhälften sein (Spiegelung an der gedachten Linie zwischen der generischen und der eigenen Tormitte) & \vspace*{1mm}\textit{ja}  	\\
 \hline
 \end{supertabular}
 \end{center}

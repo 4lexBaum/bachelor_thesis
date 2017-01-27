@@ -30,9 +30,10 @@ Neben Datenprovidern wie \gls{dfl}, Heimspiel oder Amisco, liefert der weltweit 
 \end{lstlisting}
 
 
-Jedes Event besitzt eine eindeutige ID innerhalb des Spiels (\textsf{\glqq event\_id\grqq}) und eine in der gesamten Datenbank von Opta (\textsf{\glqq id\grqq}). Über die \textsf{\glqq player\_id\grqq} kann der agierende Spieler des Events identifiziert werden, sowie dessen zugehöriges Team über die \textsf{\glqq team\_id\grqq}. Des Weiteren kann die Position der Aktion auf dem Spielfeld über die \textsf{\glqq x\grqq}- und \textsf{\glqq y\grqq}-Koordinaten lokalisiert, als auch der genau Zeitpunkt ermittelt werden (siehe Zeile 6-8). Das Attribut \textsf{\glqq type\_id\grqq} beschreibt die Art eines Events, wobei in diesem Fall die \textsf{16} für einen Torerfolg steht. Eine \textit{\glqq type\_id\grqq} von \textsf{1} beispielsweise würde einen Pass repräsentieren, während der \textsf{\glqq outcome\grqq} den Erfolg des Events angibt. Ein \textit{\glqq outcome\grqq} von \textsf{1} wäre dann ein erfolgreicher Pass zum Mitspieler, ein \textsf{\glqq outcome\grqq} von \textsf{0} indessen würde einen Fehlpass widerspiegeln. Unter dem Attribut \textsf{\glqq Q\grqq} finden sich über 300 mögliche Qualifier, welche weitere detaillierte Informationen zu bestimmten Events geben. Die Qualifier \textsf{9} oder \textsf{28} geben beispielsweise Auskunft, ob es sich der Torerfolg aus einem Elfmeter oder aus einem Eigentor resultierte.\seFootcite{Vgl.}{S.1}{OptaSports.2017a}
+Jedes Event besitzt eine eindeutige ID innerhalb des Spiels (\textsf{\glqq event\_id\grqq}) und eine in der gesamten Datenbank von Opta (\textsf{\glqq id\grqq}). Über die \textsf{\glqq player\_id\grqq} kann der agierende Spieler des Events identifiziert werden, sowie dessen zugehöriges Team über die \textsf{\glqq team\_id\grqq}. Des Weiteren kann die Position der Aktion auf dem Spielfeld über die \textsf{\glqq x\grqq}- und \textsf{\glqq y\grqq}-Koordinaten lokalisiert, als auch der genau Zeitpunkt ermittelt werden (siehe Zeile 6-8). Das Attribut \textsf{\glqq type\_id\grqq} beschreibt die Art eines Events, wobei in diesem Fall die \textsf{16} für einen Torerfolg steht. Eine \textsf{\glqq type\_id\grqq} von \textsf{1} beispielsweise würde einen Pass repräsentieren, während der \textsf{\glqq outcome\grqq} den Erfolg des Events angibt. Ein \textit{\glqq outcome\grqq} von \textsf{1} wäre dann ein erfolgreicher Pass zum Mitspieler, ein \textsf{\glqq outcome\grqq} von \textsf{0} indessen würde einen Fehlpass widerspiegeln. Unter dem Attribut \textsf{\glqq Q\grqq} finden sich über 300 mögliche Qualifier, welche weitere detaillierte Informationen zu bestimmten Events geben. Die Qualifier \textsf{9} bzw. \textsf{28} geben beispielsweise Auskunft, ob der Torerfolg aus einem Elfmeter oder aus einem Eigentor resultierte.\seFootcite{Vgl.}{S.1}{OptaSports.2017a}
+\enlargethispage{2\baselineskip} 
 
-Die Position des Events wird wie beschrieben durch die \textsf{\glqq x\grqq}- und \textsf{\glqq y\grqq}-Koordinaten bestimmt und kann mit Hilfe der \vref{opta_pitch} graphisch aufgezeigt werden. Die eigene Torlinie liegt dabei immer bei \textsf{x=0}, die gegnerische Torlinie bei \textsf{x=100} sowie die Mitte des gegnerischen Tores bei \textsf{y=50}, wodurch sich die Spielrichtung von links nach rechts ergibt. Der in \vref{optastruktur} dargestellte Schuss wurde folglich von relativ naher rechter Position zum Tor ausgeführt. Die Werte für x und y werden dabei prozentual zur Spielfeldlänge bzw. -breite angeben, um Events aus verschiedenen Spielen (=unterschiedliche Spielfeldgrößen) vergleichen zu können.\seFootcite{Vgl.}{S.1}{OptaSports.2017a} Der spätere Ursprungspunkt der Funktion (\textsf{x=0} und \textsf{y=0}) soll in der Mitte des gegnerischen Tores (\textsf{x=100} und \textsf{y=50}) liegen, sodass die Koordinatenpunkte transformiert werden müssen.
+Die Position des Events wird wie beschrieben durch die \textsf{\glqq x\grqq}- und \textsf{\glqq y\grqq}-Koordinaten bestimmt und kann mit Hilfe der \vref{opta_pitch} graphisch aufgezeigt werden. Die eigene Torlinie liegt dabei immer bei \textsf{x=0}, die gegnerische Torlinie bei \textsf{x=100}, sowie die Mitte des gegnerischen Tores bei \textsf{y=50}, wodurch sich die Spielrichtung von links nach rechts ergibt. Der in \vref{optastruktur} dargestellte Schuss wurde folglich von relativ naher rechter Position zum Tor ausgeführt. Die Werte für x und y werden dabei prozentual zur Spielfeldlänge bzw. -breite angeben, um Events aus verschiedenen Spielen (=unterschiedliche Spielfeldgrößen) vergleichen zu können.\seFootcite{Vgl.}{S.1}{OptaSports.2017a} Der spätere Ursprungspunkt der Funktion (\textsf{x=0} und \textsf{y=0}) soll in der Mitte des gegnerischen Tores (\textsf{x=100} und \textsf{y=50}) liegen, sodass die Koordinatenpunkte transformiert werden müssen (siehe Anforderung 6).
 
 \begin{figure}[H]
 \centering
@@ -41,7 +42,7 @@ Die Position des Events wird wie beschrieben durch die \textsf{\glqq x\grqq}- un
 \label{opta_pitch}
 \end{figure}
 \footnotetext{Vgl. Abbildung \textit{Opta-Sports}, F24 Appendices, 2017b, S. 43.}
-
+\enlargethispage{2\baselineskip} 
 Die vorliegende Arbeit beschäftigt sich mit der Wahrscheinlichkeit eines Torerfolges aus einer bestimmten Position. Folglich liegt der Fokus auf der Selektion aller Schüsse, die über die Type-IDs \textsf{13, 14, 15} und \textsf{16} identifiziert werden können. \vref{tab:events} gibt dazu einen Überblick über die einzelnen Events inklusive kurzer Beschreibungen. Aus der Tabelle können die Schüsse in die für die Funktionsmodellierung wichtigen Kategorien \textbf{Tor} und \textbf{Nicht-Tor} eingeteilt werden. Schüsse mit der Type-ID \textsf{13, 14, 15} werden demzufolge als Nicht-Tor verbucht sowie Type-ID \textsf{16} als Tor erfasst.
 
 %%%%%%%%%%%%%%%%%% Tabelle Schüsse %%%%%%%%%%%%%%%%%%
@@ -63,7 +64,7 @@ Die vorliegende Arbeit beschäftigt sich mit der Wahrscheinlichkeit eines Torerf
 \end{supertabular}
 \end{center}
 
-Aus der dritten Anforderung (vgl. Auflistung der Anforderung \vref{tab:anf}) resultiert, dass für die Modellierung nur Schüsse berücksichtigt werden dürfen, die aus dem \glqq \textit{laufenden}\grqq~ Spiel abgegeben wurden. Die Qualifier \textsf{9, 25} und \textsf{26} geben darüber Aufschluss, ob ein Schuss aus einer Standardsitutation (Eckball, Freistoß oder Elfmeter) hervorgeht. Ferner müssen Eigentore ausgeschlossen werden, da diese -- wie in Anforderung 4 beschrieben -- die Modellierung verzerren würden. Geblockte Schüsse müssen ebenfalls unberücksichtigt bleiben, anlässlich der Tatsache, dass keine konkrete Aussage getroffen werden kann, ob dieser Schuss sonst ein Torerfolg gewesen wäre (vgl. Anforderung 5).\vref{tab:quali} fasst dazu nochmal alle relevanten Qualifier zusammen.
+Aus der dritten Anforderung (vgl. Auflistung der Anforderung \vref{tab:anf}) resultiert, dass für die Modellierung nur Schüsse berücksichtigt werden dürfen, die aus dem \glqq \textit{laufenden}\grqq~Spiel abgegeben wurden. Die Qualifier \textsf{9, 25} und \textsf{26} geben darüber Aufschluss, ob ein Schuss aus einer Standardsitutation (Eckball, Freistoß oder Elfmeter) hervorgeht. Ferner müssen Eigentore ausgeschlossen werden, da diese -- wie in Anforderung 4 beschrieben -- die Modellierung verzerren würden. Geblockte Schüsse müssen ebenfalls unberücksichtigt bleiben, anlässlich der Tatsache, dass keine konkrete Aussage getroffen werden kann, ob solch ein Schuss sonst ein Torerfolg gewesen wäre (vgl. Anforderung 5).\vref{tab:quali} fasst dazu nochmal alle relevanten Qualifier zusammen.
 
 %%%%%%%%%%%%%%%%%% Tabelle Qualifier %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{3}{|c|}{\textbf{Relevante Qualifier}}\\\hline\hline \textbf{Q-ID} & \textbf{Name} & \textbf{Beschreibung}\\\hline}
@@ -86,16 +87,14 @@ Aus der dritten Anforderung (vgl. Auflistung der Anforderung \vref{tab:anf}) res
 \end{supertabular}
 \end{center}
 
-Als Datenbasis für diese Arbeit wurden von Opta folgende Spieldaten aus den europäischen Topligen bereitgestellt:
+Als Datenbasis für diese Arbeit wurden von Opta folgende Spieldaten aus der ersten deutschen Fußballliga bereitgestellt:
 
 \begin{itemize}
 \item Bundesliga-Saison 2013/2014 (GER)
 \item Bundesliga-Saison 2014/2015 (GER)
 \item Bundesliga-Saison 2015/2016 (GER)
-\item Premier-League-Saison 2015/2016 (ENG)
-\item Primera-Division-Saison 2015/2016 (ESP)
 \item Bundesliga-Saison 2016/2017 (GER)
 \end{itemize}
 
-Damit liegt mit über 25.000 verfügbaren Schüssen eine ausreichend große und repräsentative Datenmenge für eine Funktionsmodellierung vor, die im folgenden Kapitel (\vref{umsetzung}) umgesetzt wird.
+Damit liegt eine ausreichend große und repräsentative Datenmenge mit über 15.000 verfügbaren Schüssen für eine Funktionsmodellierung vor, die im folgenden Kapitel (\vref{umsetzung}) umgesetzt wird.
 
