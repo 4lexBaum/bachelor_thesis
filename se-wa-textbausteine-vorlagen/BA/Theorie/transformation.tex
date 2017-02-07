@@ -1,9 +1,9 @@
 \subsection{Datentransformation}
 \label{dt}
-Nachdem die (Roh-)Daten selektiert, bereinigt und auf eine relevante Zielmenge reduziert wurden, müssen diese nur noch in eine adaptierte Form für die Algorithmen des Data Minings transformiert werden.\seFootcite{Vgl.}{S. 112}{Han.2012} Oftmals müssen sogar neue Attribute aus einem Datensatz kreiert werden, da diese nicht in geeigneter Struktur für das Data-Mining-Verfahren vorliegen.\seFootcite{Vgl.}{S. 48}{Garcia.2015} Dazu es gibt eine Reihe an unterschiedlichen Transformationsmöglichkeiten, wobei in dieser Arbeit ein Auszug der relevanten Methoden vorgestellt werden soll:
+Nachdem die (Roh-)Daten selektiert, bereinigt und auf eine relevante Zielmenge reduziert wurden, müssen diese noch in eine adaptierte Form für die Algorithmen des Data Minings transformiert werden.\seFootcite{Vgl.}{S. 112}{Han.2012} Oftmals müssen sogar neue Attribute aus einem Datensatz kreiert werden, da dieser nicht in geeigneter Struktur für das Data-Mining-Verfahren vorliegt.\seFootcite{Vgl.}{S. 48}{Garcia.2015} Dazu es gibt eine Reihe an unterschiedlichen Transformationsmöglichkeiten, wobei in dieser Arbeit ein Auszug der relevanten Methoden vorgestellt werden soll:
 
 \paragraph{Codierung}
-Liegen beispielsweise Attribute mit einer ordinalen Ausprägung vor (wie \textit{sehr groß, groß, mittel und klein}), müssen diese bei einer Verwendung des \gls{knn}-Algorithmus in numerische Werte umgewandelt werden (Werte zwischen 0 und 1). Hierbei würde sich folgende Codierung für das Attribut \textit{Körpergröße} anbieten:\seFootcite{Vgl.}{S. 210}{Cleve.2014}
+Liegen beispielsweise Attribute mit einer ordinalen Ausprägung vor (wie \textit{sehr groß, groß, mittel und klein}), müssen diese bei einer Verwendung des \gls{knn}-Algorithmus in numerische Werte transformiert werden (Werte zwischen 0 und 1). Hierbei würde sich folgende Codierung für das Attribut \textit{Körpergröße} anbieten:\seFootcite{Vgl.}{S. 210}{Cleve.2014}
 
 \begin{itemize}
 \item \textit{sehr groß} $\rightarrow$ 1
@@ -12,7 +12,7 @@ Liegen beispielsweise Attribute mit einer ordinalen Ausprägung vor (wie \textit
 \item \textit{klein} $\rightarrow$ 0
 \end{itemize}
 
-Die Ordnungsrelation, hier \textit{sehr groß > groß > ...}, darf dabei jedoch nicht verloren gehen. In Abhängigkeit zu dem jeweiligen Verfahren, müssen Daten, sowie dies bei Maßeinheiten immer wieder der Fall ist, oftmals kodiert werden.\seFootcite{Vgl.}{S. 211}{Cleve.2014}
+Die Ordnungsrelation, hier \textit{sehr groß > groß > ...}, darf dabei jedoch nicht verloren gehen. In Abhängigkeit zu dem jeweiligen Verfahren, müssen Daten, so wie dies bei Maßeinheiten immer wieder der Fall ist, oftmals kodiert werden.\seFootcite{Vgl.}{S. 211}{Cleve.2014}
 
 \paragraph{Normalisierung und Skalierung}
 Unterschiedliche Maßeinheiten -- wie \textit{Körpergröße} und \textit{Körpergewicht} -- können die Datenanalyse negativ beeinflussen und müssen daher in eine einheitliche Skalierung transformiert werden, um eine gleiche Gewichtung aller Attribute zu erreichen. Man bedient sich hierbei in der Regel an der \textit{Min-Max-Normalisierung} (siehe \vref{minmax}) oder der \textit{Z-Transformation}, um numerische Werte auf ein [0,1] Intervall zu normieren.\seFootcite{Vgl.}{S. 114}{Han.2012}\seFootcite{Vgl.}{S. 212}{Cleve.2014}
@@ -29,4 +29,4 @@ x_{neu} = \frac{x - min(x_i)}{max(x_i) - min(x_i)}
 Nicht nur aus Sicht der Datenkompression (vgl. \vref{datenkompression}) ist die Datenaggregation erforderlich. Vielmehr \glqq kann die Aggregation aus inhaltlichen Gründen sinnvoll sein.\grqq\seFootcite{}{S. 214}{Cleve.2014} Wenn Daten auf einer zu detaillierten Ebene vorliegen -- wie beispielsweise Einwohnerzahlen von Stadtteilen -- müssen diese für einen Städtevergleich erst summiert werden, um bundesweite Aussagen treffen zu können. Je nach Kontext können verschiedene Aggregationsmethoden (wie z.B. Summenbildung, Durchschnitt, usw.) für die Transformation zu einem einzigen Wert angewendet werden.\seFootcite{Vgl.}{S. 112}{Han.2012}
 
 \paragraph{Datenglättung}
-Die bereits in \vref{outlierchapter} vorgestellten Techniken zur Bereinigung von verrauschten Daten und Ausreißer, finden auch bei der Transformation ihre Verwendung. Die Datenglättung strebt nach einer reduzierten Datenmenge, worin jeder numerische Wert durch idealisierte Werte, wie beispielsweise der \textit{Regression}, ersetzt wird.\seFootcite{Vgl.}{S. 214-215}{Cleve.2014}
+Die bereits in \vref{outlierchapter} vorgestellten Techniken zur Bereinigung von verrauschten Daten und Ausreißern, finden auch bei der Transformation ihre Verwendung. Die Datenglättung strebt nach einer reduzierten Datenmenge, in welcher jeder numerische Wert durch einen idealisierten Wert, wie beispielsweise der \textit{Regression}, ersetzt wird.\seFootcite{Vgl.}{S. 214-215}{Cleve.2014}
