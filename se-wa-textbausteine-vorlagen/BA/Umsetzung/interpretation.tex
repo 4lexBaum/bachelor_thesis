@@ -42,15 +42,50 @@ Die \vref{tab:verg} bietet in Form einer Matrix einen übersichtlichen Vergleich
 \end{supertabular}
 \end{center}
 
-Aus \vref{tab:verg} lässt sich entnehmen, dass einzig Modell \textit{D} alle Kriterien erfüllt, um neues Wissen zu repräsentieren. Die Validität der Funktion wird im Folgenden anhand einiger Testverfahren evaluiert.
+Aus \vref{tab:verg} lässt sich entnehmen, dass einzig Modell \textbf{D} alle Kriterien erfüllt, um neues Wissen zu repräsentieren. Die Validität der Funktion wird im Folgenden anhand einiger Testverfahren evaluiert.
 
 \subsection{Evaluation}
 \label{eva}
+Um die Ergebnisse der Modellierung evaluieren zu können, wird die Validität der Funktion nachfolgend geprüft. Ein aussagekräftiger Indikator ist dabei der Vergleich der erwarteten Tore einer Mannschaft gegenüber den tatsächlich erzielten Tore. Dazu werden zunächst alle Schussversuche -- die den Anforderungen entsprechen (vgl. \vref{datar}) -- einer Mannschaft aus einer Bundesliga-Saison selektiert, anschließend für jeden einzelnen Schussversuch die Koordinaten der Funktion übergeben und letztlich die Wahrscheinlichkeiten für einen Torerfolg aufsummiert, woraus sich ein Erwartungswert ergibt, die sogenannten \textit{Expected Goals}. In \vref{bspeva} ist dazu exemplarisch der Vergleich der Tore eines Teams gegenüber den erwartenden Tore aus der Bundesliga-Saison 2014/15 dargestellt.
+
+\begin{table}[H]
+\centering
+\caption{Beispiel der Evaluation}
+\label{bspeva}
+%\rowcolors[\hline]{1}{lightgray}{white}
+\begin{tabular}{| P{2.5cm}| P{3.5cm}| P{3.5cm}| P{2.5cm}|}
+\hline
+\textbf{Team} & \textbf{Tore} & \textbf{Erwartete Tore} & \textbf{Differenz}        \\ \hline
+Bayern        & 80            & 66                      & 14 \\ \hline
+BVB           & 47            & 54                      & 7                         \\ \hline
+Wolfsburg     & 72            & 65                      & 7                         \\ \hline
+Bayer04       & 62            & 51                      & 11 \\ \hline
+Mainz         & 45            & 49                      & 4                         \\ \hline
+S04           & 42            & 43                      & 1  \\ \hline
+H96           & 40            & 46                      & 6                         \\ \hline
+Frankfurt     & 56            & 49                      & 7                         \\ \hline
+Augsburg      & 43            & 48                      & 5                         \\ \hline
+Hoffenheim    & 49            & 48                      & 1  \\ \hline
+Gladbach      & 53            & 44                      & 9                         \\ \hline
+Hertha        & 36            & 38                      & 2  \\ \hline
+Stuttgart     & 42            & 43                      & 1  \\ \hline
+Bremen        & 50            & 52                      & 1  \\ \hline
+Freiburg      & 36            & 37                      & 1  \\ \hline
+Paderborn     & 31            & 38                      & 7                         \\ \hline
+Koeln         & 34            & 36                      & 2  \\ \hline
+HSV           & 25            & 39                      & 14 \\ \hline
+\end{tabular}
+\end{table}
+
+Werden diese Werte mit Hilfe der Korrelation verglichen, ergibt sich ein Korrelationskoeffizient von \textsf{0.9}, welcher einen starken Zusammenhang zwischen tatsächlich erzielten Tore und den erwarteten Tore aufzeigt. Die \vref{g1415} im Anhang stellt diesen Zusammenhang noch einmal graphisch dar, wobei die blaue Linie die \glqq Ideallinie\grqq~repräsentiert, auf der die erwartete Anzahl der Tore den real erzielten Toren entspricht. Dieser Zusammenhang kann gleichermaßen für die Anzahl der erwarteten Gegentore gegenüber den tatsächlich Gegentore aufgestellt werden, wie in \vref{cg1415} abgebildet. Werden innerhalb einer Spielpaarung die erwarteten Tore für beide Mannschaften berechnet, so kann ein ganzes Spielergebnis (Sieg, Niederlage oder Unentschieden) daraus bestimmt werden. Wenn dieser Vorgang für alle Spielpaarungen einer ganzen Bundesliga-Saison durchlaufen wird, ergibt sich ein Vergleich zwischen den erwarteten Punkten einer Mannschaft gegenüber den real erzielten Punkte, welcher in \vref{p1415} dargestellt ist. In \vref{anheva} befinden sich diese Zusammenhänge ebenfalls für die Bundesliga-Saisons 2015/16 und 2016/17.
+
+Aus den obengenannten Vergleichen ergeben sich weitere Indikatoren, die die Validität der ausgewählten Funktion fundieren:
 
 \begin{itemize}
-\item Bei \textsf{15}\% der Spiele kann das Spielergebnis exakt \glqq vorhergesagt\grqq~werden (genauer Spielstand – bsp.  \textsf{0:0})
-\item Bei  \textsf{50}\% der Spiele kann das Spielergebnis \glqq vorhergesagt\grqq~werden (Sieg, Unentschieden, Niederlage – bsp.  \textsf{1:0 $\equiv$ 2:1 $\equiv$ 3:1} usw.) 
-\item Bei \textsf{75}\% der Spiele weicht die erwartete Anzahl gegenüber der tatsächlichen Anzahl der geschossenen Tore um maximal ein Tor ab
-\item Die Abweichung aller Tore gegenüber aller erwartenden Tore liegt zwischen  \textsf{1-2}\%
-
+\item Für \textsf{15\%} der Spiele kann das Spielergebnis exakt bestimmt werden (genauer Spielstand – bsp.  \textsf{0:0}).
+\item Für  \textsf{50\%} der Spiele kann das Spielergebnis bestimmt werden (unabhängig von der Anzahl der Tore, das bedeutet ein Ergebnis von \textsf{1:0 $\hat{=}$ 2:1 $\hat{=}$ 3:1} usw.) .
+\item Für \textsf{75\%} der Spiele weicht die erwartete Anzahl gegenüber der tatsächlichen Anzahl der geschossenen Tore um maximal ein Tor ab.
+\item Die Abweichung der erwarteten Tore aller verfügbaren Spiele gegenüber den tatsächlich erzielten Tore liegt lediglich zwischen \textsf{1} bis \textsf{2\%}.
 \end{itemize}
+
+Diese Indikatoren, sowie die sehr guten Korrelationswerte aller evaluierten Bundesliga-Saisons, belegen eine genaue Anpassung der Funktion an die Daten, wodurch ein fundiertes Modell für die Berechnung der Wahrscheinlichkeit eines Torerfolges im Fußball resultiert.
