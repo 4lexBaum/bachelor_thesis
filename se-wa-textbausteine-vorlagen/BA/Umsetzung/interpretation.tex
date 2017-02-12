@@ -1,1 +1,46 @@
-\section{Interpretation der Ergebnisse}
+\section{Interpretation und Evaluation der Modelle}
+Die Interpretation sowie die Evaluation der Resultate des Data Minings stehen am Ende jedes KDD-Prozesses. Um eine fundierte Entscheidung für ein Modell treffen zu können, werden im Folgenden die vier vorgestellten Modellvarianten interpretiert und miteinander verglichen (siehe \vref{inter}), sowie die ausgewählte Funktion anschließend in \vref{eva} evaluiert.
+
+\subsection{Interpretation}
+\label{inter}
+Anhand der in \vref{int} vorgestellten Kriterien der \textit{Validität}, der \textit{Neuartigkeit}, der \textit{Nützlichkeit}, sowie der \textit{Verständlichkeit} des Modelles, werden die vier vorgestellten und realisierten Regressionsmodelle aus \vref{umsetzung} miteinander verglichen. Für eine vereinfachte Darstellung der Erfüllung der Anforderungen werden den Modellen folgende Abkürzungen zu geordnet:
+
+\begin{itemize}
+\item Multiple Regression der Winkel- und Distanzbetrachtung $\rightarrow$ \textbf{A}
+\item Nichtparam. Regression der Winkel- und Distanzbetrachtung $\rightarrow$ \textbf{B}
+\item Multiple Regression der Koordinatenbetrachtung $\rightarrow$ \textbf{C}
+\item Nichtparam. Regression der Koordinatenbetrachtung $\rightarrow$ \textbf{D}
+\end{itemize}
+
+Die \vref{tab:verg} bietet in Form einer Matrix einen übersichtlichen Vergleich, inwieweit jedes Modell die obengenannten Kriterien erfüllen konnte. Die \textit{Validität} setzt sich dabei einerseits aus der Bewertung der objektiven Bestimmtheitsmaßen der einzelnen Modellierungen zusammen, andererseits auch aus subjektiven Wahrnehmungen, wie die vorgestellte Problematik der Wahrscheinlichkeitsbestimmung von Schussversuchen aus spitzem Winkel (vgl. \vref{heatmap}). Dabei überzeugt einzig allein das Modell \textbf{D} mit Bestimmtheitsmaßen um die \textsf{80}\% und einer korrekten Modellierung der Schussversuche aus spitzem Winkel. Die anderen drei Modelle haben mit ca. \textsf{50}\% eine zu geringe Anpassung der Funktion an die Daten und werden demzufolge auch für zukünftige Daten nicht valide sein. Das Kriterium der \textit{Neuartigkeit} erfüllen alle Modelle, da bislang keine Modellierungen von Funktionen zur Berechnung der Wahrscheinlichkeit eines Torerfolges im Fußball existieren. Die \textit{Nützlichkeit} ergibt sich größtenteils aus der \textit{Validität}, da nur ein Modell für einen Anwender nützlich sein kann, wenn valide Werte zurückgegeben werden. Modell \textbf{B} und \textbf{D} können diese Anforderung teilweise erfüllen und ermöglichen trotz abstrakter Modellierung erste Ansätze zur Mustererkennung. Letztlich beschreibt die \textit{Verständlichkeit} inwiefern die Ergebnisse des Modells von einem anderen Anwender erfasst werden. 
+
+%%%%%%%%%%%%%%%%%% Vergleich %%%%%%%%%%%%%%%%%%
+\tablefirsthead{\hline\multicolumn{5}{|c|}{\textbf{Vergleich der Modelle}}\\\hline\hline \textbf{Kriterium} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D}\\\hline}
+\tablehead{}
+\tabletail{}
+\tablelasttail { \multicolumn {5}{| c |}
+{\textsl { \textcolor{green}{\ding{52}} erfüllt~~~~~~~\textcolor{orange}{\ding{108}} teilweise erfüllt~~~~~~~ \textcolor{red}{\ding{54}} nicht erfüllt  }}\\\hline }
+\bottomcaption{Vergleich der Modelle\label{tab:verg}}
+\begin{center}%
+\begin{supertabular}{ | P{4cm} | P{2cm}  | P{2cm} | P{2cm}  |  P{2cm}  |}
+&&&&\\
+\textit{Validität}	& \textcolor{red}{\ding{54}}	 & \textcolor{orange}{\ding{108}} & \textcolor{orange}{\ding{108}}	&\textcolor{green}{\ding{52}}	\\
+&&&&\\
+\hline
+&&&&\\
+\textit{Neuartigkeit}	& \textcolor{green}{\ding{52}}	 & \textcolor{green}{\ding{52}}	& \textcolor{green}{\ding{52}}	& \textcolor{green}{\ding{52}}	\\
+&&&&\\
+\hline
+&&&&\\
+\textit{Nützlichkeit}	&\textcolor{red}{\ding{54}}	 & \textcolor{orange}{\ding{108}} & \textcolor{orange}{\ding{108}}	& \textcolor{green}{\ding{52}}	\\
+&&&&\\
+\hline
+&&&&\\
+\textit{Verständlichkeit}	&\textcolor{red}{\ding{54}}	 & \textcolor{red}{\ding{54}}	& \textcolor{orange}{\ding{108}}	& \textcolor{green}{\ding{52}}	\\
+&&&&\\
+\hline
+\end{supertabular}
+\end{center}
+
+\subsection{Evaluation}
+\label{eva}

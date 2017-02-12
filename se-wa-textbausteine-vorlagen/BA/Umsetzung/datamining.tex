@@ -181,12 +181,16 @@ Bevor die Funktion mittels des \textit{multiplen} und des \textit{nichtparametri
 
 \subsubsection{Multiple Regression}
 
+Wie bereits bei der Betrachtung des Winkels- und der Distanz des Schussversuches zum Tor (vgl. \vref{polyWD}), wird auch für die \textit{multiple} Regression in Bezug auf die Koordinaten des Schusses eine Polynomfunktion fünften Grades verwendet. Das daraus resultierende Ergebnis (siehe \vref{plotK}) ist dabei der zu Beginn vermuteten Funktion aus \vref{vermutung} sehr ähnlich, zumindest im Bereich des gegnerischen Strafraums. Jedoch liegen große Flächen der Funktion hierbei ebenfalls im negativen Bereich der Wahrscheinlichkeit, welche durch die orangefarbenen Bereiche erkannt werden können. Des Weiteren steigt die Wahrscheinlichkeit an den Seitenlinien des Spielfeldes ($x=50$ bzw. $x=-50$), sowie seitlich des eigenen Strafraums ($20 \le x \le 40$ und $-20 \le x \le 20)$, was wiederum nicht der Realität entspricht und der Form Polynomfunktion geschuldet ist.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.34]{se-wa-jpg/plotK}
 \caption{Multiple Regressionsfunktion der Winkel- und Distanzbetrachtung}
 \label{plotK}
 \end{figure}
+
+Die Bestimmtheitsmaße dieser Modellierung aus \vref{tab:gofmrk} bestärken in einer objektiven Größe diese Mängel der Funktion. Ein weiterer Kritikpunkt stellen Schussversuche aus spitzem Winkel dar, beispielsweise ein Schuss von der Position $x=20$ und $y=2$, die in diesem Modell aufgrund der starken Glättung eine zu hohe Wahrscheinlichkeit widerspiegeln. In \vref{heatmap} (a) wird diese Besonderheit durch die Visualisierung der Wahrscheinlichkeit anhand einer Heatmap deutlich. Um das gegnerische Tor bildet sich eine Art Halbkreis, sodass der genannte Schussversuch mit der gleichen Wahrscheinlichkeit eingestuft wird, als ein Schussversuch von zentraler Position außerhalb des Strafraums, obwohl der Winkel ($84^\circ$ vgl. \vref{winkel_distanz}) zum Tor sehr spitz ist.
 
 %%%%%%%%%%%%%%%%%% Tabelle GOFMRK %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{2}{|c|}{\textbf{Goodness of Fit}}\\\hline}
@@ -204,6 +208,9 @@ Bevor die Funktion mittels des \textit{multiplen} und des \textit{nichtparametri
 \end{center}
 
 \subsubsection{Nichtparametrische Regression}
+
+Zur Umsetzung der \textit{nichtparametrischen} Regression wird wie innerhalb der Winkel- und Distanzbetrachtung (vgl. \vref{span}) die \gls{lowess}-Methode mit einem Span-Wert von \textsf{3\%} verwendet. Mit diesem Wert konnte eine gute Balance zwischen einem Under- bzw. Overfitting des Modelles erreicht werden. Dieser wurde letztlich durch mehrere iterative Annäherungen als optimalen Wert ausgewählt, wozu\enlargethispage{2\baselineskip} das Ergebnis dieser Modellierung in \vref{splinek} abgebildet ist.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.34]{se-wa-jpg/splinek}
@@ -211,6 +218,7 @@ Bevor die Funktion mittels des \textit{multiplen} und des \textit{nichtparametri
 \label{splinek}
 \end{figure}
 
+Aus der Abbildung lässt sich entnehmen, dass die Funktion innerhalb der angegebenen Wertebereiche keine negativen Wahrscheinlichkeiten annimmt sowie den Bereich des gegnerischen Strafraums relativ exakt modelliert, wodurch der angesprochene \glqq Gipfel\grqq~ widergespiegelt wird. \vref{tab:gofnrk} bestätigt diese Annahmen mit sehr guten Werten der Bestimmtheitsmaße, die für eine genaue Anpassung des Modelles an die Daten sprechen.
 
 %%%%%%%%%%%%%%%%%% Tabelle GOFNRK %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{2}{|c|}{\textbf{Goodness of Fit}}\\\hline}
@@ -220,12 +228,14 @@ Bevor die Funktion mittels des \textit{multiplen} und des \textit{nichtparametri
 \bottomcaption{Goodness of Fit der nichparametrischen Regression der Koordinatenbetrachtung\label{tab:gofnrk}}
 \begin{center}%
 \begin{supertabular}{ | P{6cm} | P{3cm}  |}
-\textsf{R-Qudrat} 	& 0.4981	\\
+\textsf{R-Qudrat} 	& 0.7761	\\
 \hline
-\textsf{korrigiertes R-Qudrat} 	&  0.4971	\\
+\textsf{korrigiertes R-Qudrat} 	&  0.7715	\\
 \hline
 \end{supertabular}
 \end{center}
+
+Das innerhalb der \textit{multiplen} Regression angesprochene Problem der verfälschten Wahrscheinlichkeit eines Schussversuches aus spitzem Winkel, tritt in der \textit{nichtparametrischen} Modellierung nicht mehr auf. \vref{heatmap} zeigt anhand einer Heatmap diesen Unterschied der beiden Regressionsmodelle nochmals deutlich auf, wobei der graue Pfeil die Schussbahn symbolisiert. Die \gls{lowess}-Funktion (b) bildet eine Art Ellipse innerhalb des gegnerischen Strafraums und spiegelt damit indirekt die geringe Wahrscheinlichkeit eines Schussversuches aus spitzem Winkel (hier $84^\circ$) korrekt wider. Die helleren Blautöne der \textit{multiplen} Regression (a) resultieren aufgrund der negativen Wahrscheinlichkeiten, da der niedrigste Wert im Vergleich zur \textit{nichtparametrischen} Regression (b) nicht genau null beträgt.
 
 \begin{figure}[H]
 \centering
