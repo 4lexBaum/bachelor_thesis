@@ -5,7 +5,7 @@ In diesem Kapitel wird das eigentliche Data Mining in Form der Regressionsanalys
 
 \subsection{Betrachtung des Winkels- und der Distanz}
 \label{bwd}
-Die Daten wurden für die Betrachtung des Winkels- und der Distanz des Schussversuchs wurden zuvor in \vref{wdt} in ein adaptiertes Format transformiert, sowie zu einer verwendbare Datenmenge aggregiert. Diese Datenmenge wird zunächst in MATLAB importiert und die einzelnen Variablen anschließend mit Hilfe des \gls{cft} (vgl. \vref{matra}) ausgewählt, wie in \vref{auswahlWD} abgebildet.
+Die Daten wurden für die Betrachtung des Winkels- und der Distanz des Schussversuchs zuvor in \vref{wdt} in ein adaptiertes Format transformiert, sowie zu einer verwendbaren Datenmenge aggregiert. Diese Datenmenge wird zunächst in MATLAB importiert, sodass die einzelnen Variablen anschließend mit Hilfe des \gls{cft} (vgl. \vref{matra}) ausgewählt werden können, wie in \vref{auswahlWD} abgebildet.
 
 \begin{figure}[H]
 \centering
@@ -30,7 +30,7 @@ Die Wertebereiche der Variablen (gleiches gilt für die Achsen) sind aus der Tra
 \item $ 0 \le$ Wahrscheinlichkeit $\le 1$
 \end{itemize}
 
-Stellt man die aggregierten Daten ohne eine angepasste Funktion dar, ergibt sich die \vref{rowWD}, wobei die vorherige Einteilung der Daten in Raster deutlich wird. Jeder orangefarbene Punkt repräsentiert dabei in der Höhe die Wahrscheinlichkeit in Form der relativen Häufigkeit. Bereits in dieser vereinfachten Abbildung wird deutlich das ab einer bestimmten Distanz (ca. \textsf{40}) der Winkel keinen Einfluss mehr auf die Wahrscheinlichkeit für einen Torerfolg bewirkt. Mit Hilfe des \textit{multiplen} und des \textit{nichtparametrischen} Regressionsmodell soll nachfolgend eine Funktion modelliert werden, die diese Punktewolke bestmöglich beschreibt, wobei das Bestimmtsheitsmaß (vgl. \vref{bhm}) eine objektive Aussage über die Anpassung des Modells an die Daten bietet.
+Stellt man die aggregierten Daten ohne eine angepasste Funktion dar, ergibt sich \vref{rowWD}, wobei die vorherige Einteilung der Daten in Raster deutlich wird. Jeder orangefarbene Punkt repräsentiert dabei in der Höhe die Wahrscheinlichkeit in Form der relativen Häufigkeit. Bereits in dieser vereinfachten Abbildung wird deutlich, dass ab einer bestimmten Distanz (ca. \textsf{40}) der Winkel keinen Einfluss mehr auf die Wahrscheinlichkeit eines Torerfolges hat. Mit Hilfe des \textit{multiplen} und des \textit{nichtparametrischen} Regressionsmodelles soll nachfolgend eine Funktion modelliert werden, die diese Punktewolke bestmöglich beschreibt, wobei das Bestimmtsheitsmaß (vgl. \vref{bhm}) eine objektive Aussage über die Anpassung des Modells an die Daten bietet.
 
 \begin{figure}[H]
 \centering
@@ -39,7 +39,7 @@ Stellt man die aggregierten Daten ohne eine angepasste Funktion dar, ergibt sich
 \label{rowWD}
 \end{figure}
 
-Betrachtet man die Wahrscheinlichkeit eines Torerfolges in Abhängigkeit der Distanz, wie in \vref{outlierWD} dargestellt, so lassen sich Ausreißer -- wie der Rekordschuss von Moritz Stoppelkamp (vgl. \vref{datac}) -- schnell erkennen und über das CFT von der Berechnung ausschließen. Dieser Schritt ist essenziell für die Modellierung, da die stark von der Grundmenge abweichenden Daten die Funktion deutlich beeinflussen und damit die Realität verzerren können.
+Betrachtet man die Wahrscheinlichkeit eines Torerfolges in Abhängigkeit von der Distanz, wie in \vref{outlierWD} dargestellt, so lassen sich Ausreißer -- wie der Rekordschuss von Moritz Stoppelkamp (vgl. \vref{datac}) -- schnell erkennen und über das CFT von der Berechnung ausschließen. Dieser Schritt ist essenziell für die Modellierung, da die stark von der Grundmenge abweichenden Daten die Funktion deutlich beeinflussen und damit die Realität verzerren.
 
 \begin{figure}[H]
 \centering
@@ -49,7 +49,7 @@ Betrachtet man die Wahrscheinlichkeit eines Torerfolges in Abhängigkeit der Dis
 \end{figure}
 
 \subsubsection{Multiple Regression}
-Wie in \vref{rm} beschrieben, wird die \textit{multiple} Regression für Anwendungsfälle genutzt, bei denen die Zielvariable von mehreren unabhängigen Variablen abhängig ist, wie in diesem Fall von dem Winkel und der Distanz des Schusses zum Tor. Da es sich um ein parametrisches Regressionsmodell handelt, muss zwingend eine Funktion vorgegeben werden. Innerhalb der Regressionsanalyse werde dann die Parameter so justiert, dass die Funktion möglichst genau an die Daten angepasst wird. Im CFT wird dazu, wie in \vref{polyWD} abgebildet, der Funktionstyp \textit{Polynomial} mit den Polynomgraden \textsf{5} für die unabhängigen Variablen ausgewählt. Der Funktionstyp \textit{Lowess} modelliert die Funktion mit \textit{Splines} (vgl. \vref{rm}) und wird innerhalb der \textit{nichtparametrischen} Regression verwendet (siehe \vref{wdnr}). Das Verfahren der Interpolation beschreibt jeden Punkt als eigene stetige Funktion und bildet damit sogenannte \textit{Peaks}, welche im Anhang in \vref{inter} betrachtet werden können. Eine benutzerdefinierte Gleichung kann ebenfalls ausgeschlossen werden, da in diesem Prozess viele mathematische Annahmen und Vermutungen getroffen werden müssen, sodass diese Möglichkeit aufgrund der zeitlichen Ressourcen nicht zu realisieren ist.
+Wie in \vref{rm} beschrieben, wird die \textit{multiple} Regression für Anwendungsfälle genutzt, bei denen die Zielvariable von mehreren unabhängigen Variablen abhängig ist, wie in diesem Fall von dem Winkel und der Distanz des Schusses zum Tor. Da es sich um ein parametrisches Regressionsmodell handelt, muss zwingend eine Funktion vorgegeben werden. Innerhalb der Regressionsanalyse werden dann die Parameter so justiert, dass die Funktion möglichst genau an die Daten angepasst werden kann. Im CFT wird dazu, wie in \vref{polyWD} abgebildet, der Funktionstyp \textit{Polynomial} mit den Polynomgraden \textsf{5} für die unabhängigen Variablen ausgewählt. Der Funktionstyp \textit{Lowess} modelliert die Funktion mit \textit{Splines} (vgl. \vref{rm}) und wird innerhalb der \textit{nichtparametrischen} Regression verwendet (siehe \vref{wdnr}). Das Verfahren der Interpolation beschreibt jeden Punkt als eine eigene stetige Funktion und bildet damit sogenannte \textit{Peaks}, welche im Anhang in \vref{inter} betrachtet werden können. Eine benutzerdefinierte Gleichung kann ebenfalls ausgeschlossen werden, da in diesem Prozess viele mathematische Annahmen und Vermutungen getroffen werden müssen, sodass diese Möglichkeit aufgrund der zeitlichen Ressourcen nicht zu realisieren ist.
 
 \begin{figure}[H]
 \centering
@@ -58,7 +58,7 @@ Wie in \vref{rm} beschrieben, wird die \textit{multiple} Regression für Anwendu
 \label{polyWD}
 \end{figure}
 
-Wie zu erkennen, unterstützt MATLAB die Polynomfunktionen bis fünften Grades, welche für die \textit{multiple} Regression ausgewählt werden, da ein höherer Grad eine bessere Anpassung an die Daten verspricht. Das Ergebnis lässt sich dazu in \vref{plotWD} betrachten.
+Wie zu erkennen ist, unterstützt MATLAB die Polynomfunktionen bis zum fünften Grad, welcher für die \textit{multiple} Regression ausgewählt wird, da ein höherer Grad eine bessere Anpassung an die Daten verspricht. Das Ergebnis dazu lässt sich in \vref{plotWD} betrachten.
 
 \begin{figure}[H]
 \centering
@@ -86,7 +86,7 @@ Die Polynomfunktion ist sehr glatt modelliert und geht teilweise sogar in den ne
 
 \subsubsection{Nichtparametrische Regression}
 \label{wdnr}
-Da sich von vornherein nur schwer eine Regressionsfunktion mit bestimmter Spezifizierung der Parameter vorher sagen lässt, wird auf die \textit{nichtparametrische} Regression in Form der von MATLAB bereitgestellten \gls{lowess}- Methode zurückgegriffen. Die x-(\textit{Winkel}) und y-(\textit{Distanz})-Werte werden dabei in eine feines Gitter -- ähnlich der Rastereinteilung innerhalb der Transformation -- eingeteilt und diese Bereiche einzeln durch Polynome niedrigen Grades beschrieben. Durch die Aneinanderreihung der dieser Gitter an ihren \glqq Knotenpunkte\grqq~lässt sich die gesuchte Funktion schätzen. Bei der Auswahl der \gls{lowess}-Methodik (siehe \vref{span}) kann dabei mit Hilfe des \textit{Span}-Parameters die Glättung der Funktion bestimmt werden. Dieser gibt prozentual (zwischen 1 bis 100\%) an wie viele Datenpunkte zur lokalen Regression herangezogen werden, das bedeutet wie groß das Gitter zur gesamten Datenmenge gestrickt werden soll. Wird der Span-Wert reduziert passt sich die Funktion sehr nah an die Daten an, im Gegensatz dazu führt eine Erhöhung des Span-Wertes zu einer starken Glättung der Funktion.\seFootcite{Vgl.}{}{matlab.2017}
+Da sich von vornherein nur schwer eine Regressionsfunktion mit bestimmter Spezifizierung der Parameter vorhersagen lässt, wird auf die \textit{nichtparametrische} Regression in Form der von MATLAB bereitgestellten \gls{lowess}- Methode zurückgegriffen. Die x-(\textit{Winkel}) und y-(\textit{Distanz})-Werte werden dabei in eine feines Gitter -- ähnlich der Rastereinteilung innerhalb der Transformation -- eingeteilt und diese Bereiche einzeln durch Polynome niedrigen Grades beschrieben. Durch die Aneinanderreihung der Gitter an den \glqq Knotenpunkten\grqq~lässt sich die gesuchte Funktion schätzen. Bei der Auswahl der \gls{lowess}-Methodik (siehe \vref{span}) kann dabei mit Hilfe des \textit{Span}-Parameters die Glättung der Funktion bestimmt werden. Dieser gibt prozentual (zwischen 1 bis 100\%) an wie viele Datenpunkte zur lokalen Regression herangezogen werden. Das bedeutet wie groß das Gitter im Verhältnis zur gesamten Datenmenge gestrickt werden soll. Wird der Span-Wert reduziert passt sich die Funktion sehr nah an die Daten an, im Gegensatz dazu führt eine Erhöhung des Span-Wertes zu einer starken Glättung der Funktion.\seFootcite{Vgl.}{}{matlab.2017}
 
 \begin{figure}[H]
 \centering
@@ -129,13 +129,13 @@ Die Bestimmtheitsmaße der \textit{nichtparametrische} Regressionsfunktion aus \
 \label{bk}
 
 
-In \vref{kt} wurden die Daten in ein adaptiertes Format für die Koordinatenbetrachtung transformiert, sowie zu einer verwendbare Datenmenge, in Form von Rastern (vgl. \vref{raster}), aggregiert. Nachdem Import dieser spezifischen Datenmenge in MATLAB, können die einzelnen Variablen anschließend mit Hilfe des \gls{cft} (vgl. \vref{matra}) ausgewählt, wie in \vref{auswahlK} dargestellt.
+In \vref{kt} wurden die Daten in ein adaptiertes Format für die Koordinatenbetrachtung transformiert, sowie zu einer verwendbaren Datenmenge, in Form von Rastern (vgl. \vref{raster}), aggregiert. Nach dem Import dieser spezifischen Datenmenge in MATLAB, können die einzelnen Variablen anschließend mit Hilfe des \gls{cft} (vgl. \vref{matra}) ausgewählt werden, wie in \vref{auswahlK} dargestellt.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{se-wa-jpg/auswahlK}
 \caption{Auswahl der Daten für die Koordinatenbetrachtung im CFT}
-\label{auswahlWD}
+\label{auswahlK}
 \end{figure}
 
 Dabei gilt folgende Zuordnung, wobei die x- und y-Koordinate die unabhängigen und die Wahrscheinlichkeit die abhängige Variable bildet:
@@ -146,7 +146,7 @@ Dabei gilt folgende Zuordnung, wobei die x- und y-Koordinate die unabhängigen u
 \item Wahrscheinlichkeit ($p$) $\rightarrow$ Z-Achse
 \end{itemize}
 
-Die Wertebereiche der Variablen und der Achsen wird aus der Transformation in \vref{kt} zu übernommen und analog in MATLAB eingetragen.
+Die Wertebereiche der Variablen und der Achsen wird aus der Transformation in \vref{kt} übernommen und analog in MATLAB eingetragen.
 
 \begin{itemize}
 \item $ -50 \le$ x-Koordinate $\le 50$
@@ -181,7 +181,7 @@ Bevor die Funktion mittels des \textit{multiplen} und des \textit{nichtparametri
 
 \subsubsection{Multiple Regression}
 
-Wie bereits bei der Betrachtung des Winkels- und der Distanz des Schussversuches zum Tor (vgl. \vref{polyWD}), wird auch für die \textit{multiple} Regression in Bezug auf die Koordinaten des Schusses eine Polynomfunktion fünften Grades verwendet. Das daraus resultierende Ergebnis (siehe \vref{plotK}) ist dabei der zu Beginn vermuteten Funktion aus \vref{vermutung} sehr ähnlich, zumindest im Bereich des gegnerischen Strafraums. Jedoch liegen große Flächen der Funktion hierbei ebenfalls im negativen Bereich der Wahrscheinlichkeit, welche durch die orangefarbenen Bereiche erkannt werden können. Des Weiteren steigt die Wahrscheinlichkeit an den Seitenlinien des Spielfeldes ($x=50$ bzw. $x=-50$), sowie seitlich des eigenen Strafraums ($20 \le x \le 40$ und $-20 \le x \le 20)$, was wiederum nicht der Realität entspricht und der Form Polynomfunktion geschuldet ist.
+Wie bereits bei der Betrachtung des Winkels- und der Distanz des Schussversuches zum Tor (vgl. \vref{polyWD}), wird auch für die \textit{multiple} Regression in Bezug auf die Koordinaten des Schusses eine Polynomfunktion fünften Grades verwendet. Das daraus resultierende Ergebnis (siehe \vref{plotK}) ist dabei der zu Beginn vermuteten Funktion aus \vref{vermutung} sehr ähnlich, zumindest im Bereich des gegnerischen Strafraums. Jedoch liegen große Flächen der Funktion hierbei ebenfalls im negativen Bereich der Wahrscheinlichkeit, welche durch die orangefarbenen Bereiche erkannt werden können. Des Weiteren steigt die Wahrscheinlichkeit an den Seitenlinien des Spielfeldes ($x=50$ bzw. $x=-50$), sowie seitlich des eigenen Strafraums ($20 \le x \le 40$ und $-20 \le x \le 20)$, was wiederum nicht der Realität entspricht und der Form der Polynomfunktion geschuldet ist.
 
 \begin{figure}[H]
 \centering
@@ -218,7 +218,7 @@ Zur Umsetzung der \textit{nichtparametrischen} Regression wird wie innerhalb der
 \label{splinek}
 \end{figure}
 
-Aus der Abbildung lässt sich entnehmen, dass die Funktion innerhalb der angegebenen Wertebereiche keine negativen Wahrscheinlichkeiten annimmt sowie den Bereich des gegnerischen Strafraums relativ exakt modelliert, wodurch der angesprochene \glqq Gipfel\grqq~ widergespiegelt wird. \vref{tab:gofnrk} bestätigt diese Annahmen mit sehr guten Werten der Bestimmtheitsmaße, die für eine genaue Anpassung des Modelles an die Daten sprechen.
+Aus der Abbildung lässt sich entnehmen, dass die Funktion innerhalb der angegebenen Wertebereiche keine negativen Wahrscheinlichkeiten annimmt, sowie den Bereich des gegnerischen Strafraums relativ exakt modelliert, wodurch der angesprochene \glqq Gipfel\grqq~ widergespiegelt wird. \vref{tab:gofnrk} bestätigt diese Annahmen mit sehr guten Werten der Bestimmtheitsmaße, die für eine genaue Anpassung des Modelles an die Daten sprechen.
 
 %%%%%%%%%%%%%%%%%% Tabelle GOFNRK %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{2}{|c|}{\textbf{Goodness of Fit}}\\\hline}
