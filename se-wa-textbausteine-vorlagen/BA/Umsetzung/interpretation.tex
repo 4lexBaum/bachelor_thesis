@@ -1,6 +1,6 @@
 \section{Interpretation und Evaluation der Modelle}
 \label{iue}
-Die Interpretation sowie die Evaluation der Resultate des Data Minings stehen am Ende jedes KDD-Prozesses. Um eine fundierte Entscheidung für ein Modell treffen zu können, werden im Folgenden die vier vorgestellten Modellvarianten interpretiert und miteinander verglichen (siehe \vref{inter}), sowie die ausgewählte Funktion anschließend in \vref{eva} evaluiert.
+Die Interpretation sowie die Evaluation der Resultate des Data Minings stehen am Ende jedes \gls{kdd}-Prozesses. Um eine fundierte Entscheidung für ein Modell treffen zu können, werden im Folgenden die vier vorgestellten Modellvarianten interpretiert und miteinander verglichen (siehe \vref{inter}), sowie die ausgewählte Funktion anschließend in \vref{eva} evaluiert.
 
 \subsection{Interpretation}
 \label{inter}
@@ -78,13 +78,13 @@ HSV           & 25            & 39                      & 14 \\ \hline
 \end{tabular}
 \end{table}
 
-Werden diese Werte mit Hilfe der Korrelation verglichen, ergibt sich ein Korrelationskoeffizient von \textsf{0.9}, welcher einen starken Zusammenhang zwischen tatsächlich erzielten Tore und den erwarteten Tore aufzeigt. \vref{g1415} im Anhang stellt diesen Zusammenhang noch einmal graphisch dar, wobei die blaue Linie die \glqq Ideallinie\grqq~repräsentiert, auf der die erwartete Anzahl der Tore den real erzielten Toren entspricht. Dieser Zusammenhang kann gleichermaßen für die Anzahl der erwarteten Gegentore gegenüber den tatsächlich erhaltenen Gegentore aufgestellt werden, wie in \vref{cg1415} abgebildet. Werden innerhalb einer Spielpaarung die erwarteten Tore für beide Mannschaften berechnet, so kann ein ganzes Spielergebnis (Sieg, Niederlage oder Unentschieden) daraus bestimmt werden. Wenn dieser Vorgang für alle Spielpaarungen einer ganzen Bundesliga-Saison durchlaufen wird, ergibt sich ein Vergleich zwischen den erwarteten Punkten einer Mannschaft gegenüber den real erzielten Punkte, welcher in \vref{p1415} dargestellt ist. In \vref{anheva} befinden sich diese Zusammenhänge ebenfalls für die Bundesliga-Saisons 2015/16 und 2016/17.
+Werden diese Werte mit Hilfe der Korrelation verglichen, ergibt sich ein Korrelationskoeffizient\footnote{Beschreibt den Zusammenhang zweier Variablen in einer Skala von -1 bis +1.} von \textsf{0.9}, welcher einen starken Zusammenhang zwischen tatsächlich erzielten Tore und den erwarteten Tore aufzeigt. \vref{g1415} im Anhang stellt diesen Zusammenhang noch einmal graphisch dar, wobei die blaue Linie die \glqq Ideallinie\grqq~repräsentiert, auf der die erwartete Anzahl der Tore den real erzielten Toren entspricht. Dieser Zusammenhang kann gleichermaßen für die Anzahl der erwarteten Gegentore gegenüber der tatsächlich erhaltenen Gegentore aufgestellt werden, wie in \vref{cg1415} abgebildet. Werden innerhalb einer Spielpaarung die erwarteten Tore für beide Mannschaften berechnet, so kann ein ganzes Spielergebnis (Sieg, Niederlage oder Unentschieden) daraus bestimmt werden. Wenn dieser Vorgang für alle Spielpaarungen einer ganzen Bundesliga-Saison durchlaufen wird, ergibt sich ein Vergleich zwischen den erwarteten Punkten einer Mannschaft gegenüber den real erzielten Punkten, welcher in \vref{p1415} dargestellt ist. In \vref{anheva} befinden sich diese Zusammenhänge ebenfalls für die Bundesliga-Saisons 2015/16 und 2016/17.
 
 Aus den obengenannten Vergleichen ergeben sich weitere Indikatoren, die die Validität der ausgewählten Funktion fundieren:
 
 \begin{itemize}
-\item Für \textsf{15\%} der Spiele kann das Spielergebnis exakt bestimmt werden (genauer Spielstand – bsp.  \textsf{0:0}).
-\item Für  \textsf{50\%} der Spiele kann das Spielergebnis bestimmt werden (unabhängig von der Anzahl der Tore, das bedeutet ein Ergebnis von \textsf{1:0 $\hat{=}$ 2:1 $\hat{=}$ 3:1} usw.) .
+\item Für \textsf{15\%} der Spiele kann das Spielergebnis exakt bestimmt werden (genauer Spielstand – Bsp.  \textsf{0:0}).
+\item Für  \textsf{50\%} der Spiele kann das Spielergebnis bestimmt werden (unabhängig von der Anzahl der Tore, das bedeutet ein Ergebnis von \textsf{1:0 $\hat{=}$ 2:1 $\hat{=}$ 3:1} usw.).
 \item Für \textsf{75\%} der Spiele weicht die erwartete Anzahl gegenüber der tatsächlichen Anzahl der geschossenen Tore um maximal ein Tor ab.
 \item Die Abweichung der erwarteten Tore aller verfügbaren Spiele gegenüber den tatsächlich erzielten Tore liegt lediglich zwischen \textsf{1} bis \textsf{2\%}.
 \end{itemize}
