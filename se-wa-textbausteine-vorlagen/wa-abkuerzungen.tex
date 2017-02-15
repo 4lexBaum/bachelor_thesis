@@ -100,11 +100,11 @@
 
 \seNewAcronymGlossaryEntry{ml}{ML}{Machine Learning}%
 {}%
-{Das \textit{Lernen} umfasst viele komplexe Aspekte, welche sich nicht direkt auf Computer nachbilden lassen. Maschinelles Lernen (\textit{Machine Learning}) verfolgt durch den Entwurf von Algorithmen rechnergestützte und automatisierte Lernverfahren verfügbar zu machen, um aus Daten neues Wissen zu generieren.\seFootcite{Vgl.}{S. 13}{Cleve.2014}}
+{Das \textit{Lernen} umfasst viele komplexe Aspekte, welche sich nicht direkt auf einen Computer abbilden lassen. Maschinelles Lernen (\textit{Machine Learning}) verfolgt das Ziel durch den Entwurf von Algorithmen rechnergestützte und automatisierte Lernverfahren verfügbar zu machen, um aus den vorliegenden Daten neues Wissen zu generieren.\seFootcite{Vgl.}{S. 13}{Cleve.2014}}
 
 \seNewAcronymGlossaryEntry{olap}{OLAP}{Online Analytical Processing}%
 {}%
-{Die Prinzip wird innerhalb von Business Warehouses verwendet, um innerhalb eines multidimensionalen Datenmodells, in Form eines Datenwürfels, durch gezielte Operationen (\textit{wie Slicing und Dicing, Roll-up, Drill-Down, usw.}) Daten abzufragen.\seFootcite{Vgl.}{S. 1067}{Elmasri.2011}}
+{Dieses Prinzip wird innerhalb von Business Warehouses verwendet, um innerhalb eines multidimensionalen Datenmodells, in Form eines Datenwürfels, durch gezielte Operationen (\textit{wie Slicing und Dicing, Roll-up, Drill-Down, usw.}) Daten abzufragen.\seFootcite{Vgl.}{S. 1067}{Elmasri.2011}}
 
 \seNewAcronymGlossaryEntry{sql}{SQL}{Structured Query Language}%
 {}%
@@ -114,7 +114,7 @@
 
 \seNewAcronymGlossaryEntry{dm}{DM}{Data Mining}%
 {}%
-{Es beschreibt einen Prozess des \glqq Sammelns, Säuberns, Verarbeitens und Analysierens von Daten, zur Gewinnung von nützlichen Information.\grqq\seFootcite{}{S.1}{Aggarwal.2015} Mit Hilfe von bereitgestellten Methoden und Werkzeugen, welche auf die Daten angewandt werden, können Muster aus großen Datenmenge erkannt und somit neues Wissen generiert werden.}
+{Es beschreibt einen Prozess des \glqq Sammelns, Säuberns, Verarbeitens und Analysierens von Daten, zur Gewinnung von nützlichen Informationen.\grqq\seFootcite{}{S.1}{Aggarwal.2015} Mit Hilfe von bereitgestellten Methoden und Werkzeugen, welche auf die Daten angewandt werden, können Muster aus großen Datenmengen erkannt und somit neues Wissen generiert werden.}
 
 \seNewAcronymGlossaryEntry{iot}{IoT}{Internet of Things}%
 {}%
@@ -122,11 +122,11 @@
 
 \seNewAcronymGlossaryEntry{crisp-dm}{CRISP-DM}{Cross Industry Standard Process for Data Mining}%
 {}%
-{Hierbei handelt es sich um eine industrieorientierte Ausgestaltung des Data Mining Prozesses, welcher in die folgenden sechs Phasen eingeteilt ist: Verstehen der Aufgabe, Verständnis der Daten, Datenvorverarbeitung, Modellbildung, Evaluation und Einsatz im Unternehmen.\seFootcite{Vgl.}{S. 6-8}{Cleve.2014}}
+{Hierbei handelt es sich um eine industrieorientierte Darstellung des Data Mining Prozesses, welcher in die folgenden sechs Phasen eingeteilt ist: Verstehen der Aufgabe, Verständnis der Daten, Datenvorverarbeitung, Modellbildung, Evaluation und Einsatz im Unternehmen.\seFootcite{Vgl.}{S. 6-8}{Cleve.2014}}
 
 \seNewAcronymGlossaryEntry{kdd}{KDD}{Knowledge Discovery in Data}%
 {}%
-{Hierbei handelt es sich um eine mögliche Gestaltung des Data Mining Prozesses. Dabei sind folgende fünf Phasen vorhergesehen: Datenselektion, Datenvorverarbeitung, Datentransformation, Data Mining, sowie die Interpretation und Evaluation.\seFootcite{Vgl.}{S. 3}{Runkler.2015}}
+{Hierbei handelt es sich um eine mögliche Gestaltung des Data Mining Prozesses. Dabei sind folgende fünf Phasen vorgesehen: Datenselektion, Datenvorverarbeitung, Datentransformation, Data Mining, sowie die Interpretation und Evaluation.\seFootcite{Vgl.}{S. 3}{Runkler.2015}}
 
 \seNewAcronymEntry{svm}{SVM}{Suppport Vector Machine}{}
 
@@ -134,21 +134,21 @@
 
 \seNewAcronymGlossaryEntry{mdkq}{MDKQ}{Methode der kleinsten Quadrate}%
 {}%
-{Das Ziel der Regression ist die Bestimmung der Parameter der Funktion mit Hilfe der Methode der kleinsten Quadrate. Diese versucht die quadratischen Abstände vom Funktionsgraphen $\hat{f}$ zu den Daten zu minimieren ($\min RSS = \sum\forall i (y_i - \hat{y}(x_i))^2$. Im einfachsten Falle liegt eine \textit{lineare} Regressionsfunktion der Form $\hat{f}(x) = \hat{\alpha} \cdot x + \hat{\beta}$ vor, wobei die Parameter $\hat{\alpha}$ und $\hat{\beta}$ wie folgt bestimmt werden können:\seFootcite{Vgl.}{S. 36 ff}{Studenmund.2014}\begin{equation}
-	\hat{\alpha} = \frac{\sum\forall i x_i y_i - m \overline{x} \overline{y}}{\sum\forall i x^2_i - m \overline{x}^2}
+{Das Ziel der Regression ist die Bestimmung der Parameter der Funktion mit Hilfe der Methode der kleinsten Quadrate. Diese versucht, die quadratischen Abstände vom Funktionsgraphen $\hat{f}$ zu den Daten zu minimieren ($\min RSS = \sum_{\forall i} (y_i - \hat{y}(x_i))^2$. Im einfachsten Falle liegt eine \textit{lineare} Regressionsfunktion der Form $\hat{f}(x) = \hat{\alpha} \cdot x + \hat{\beta}$ vor, wobei die Parameter $\hat{\alpha}$ und $\hat{\beta}$ wie folgt bestimmt werden können:\seFootcite{Vgl.}{S. 36 ff}{Studenmund.2014}\begin{equation}
+	\hat{\alpha} = \frac{\sum{\forall i} x_i y_i - m \overline{x} \overline{y}}{\sum{\forall i} x^2_i - m \overline{x}^2}
 \end{equation} \begin{equation}
 	\hat{\beta} = \overline{y} - \hat{\alpha} \overline{x}^2
 \end{equation}   }
 
-\seNewGlossaryEntry{bigdata}{Big Data}{}{Hierbei handelt sich um Datenmenge, welche die Leistungsfähigkeit herkömmlicher Analysewerkzeugen übersteigt. Die Definition des Begriffes erfolgt häufig anhand der \glqq vier V\grqq.\seFootcite{Vgl.}{S. 10-12}{Freiknecht.2014} \begin{itemize}\item \textbf{Volume:} Es wird gerechnet, dass der weltweit verfügbare Datenbestand sich alle zwei Jahre verdoppelt.
+\seNewGlossaryEntry{bigdata}{Big Data}{}{Hierbei handelt sich um eine Datenmenge, welche die Leistungsfähigkeit herkömmlicher Analysewerkzeuge übersteigt. Die Definition des Begriffes erfolgt häufig anhand der \glqq vier V\grqq.\seFootcite{Vgl.}{S. 10-12}{Freiknecht.2014} \begin{itemize}\item \textbf{Volume:} Es wird gerechnet, dass der weltweit verfügbare Datenbestand sich alle zwei Jahre verdoppelt.
 \item \textbf{Velocity:} Eine große Datenmenge entsteht innerhalb kurzer Zeit und muss demzufolge schnell verarbeitet und analysiert werden.
 \item \textbf{Variety:} Daten sind sich ähnlich, besitzen jedoch keine einheitliche Struktur und müssen aufgrund geringer Qualität aufbereitet werden.
 \item \textbf{Veracity:} In der heutigen Informationsgesellschaft muss die Vertrauenswürdigkeit der Daten immer wieder überprüft werden.\end{itemize}}
 
-\seNewGlossaryEntry{clustering}{Clustering}{}{Das Clustering ist eines der Grundbausteine des Data Mining, welche das Ziel der Aufteilung der Daten in verschieden Gruppen verfolgt, wobei diese Gruppen, auch \textit{Cluster} genannt, zuvor nicht bekannt sind. Die Elemente eines solchen Clusters sollten nach innen möglichst homogen sein, sich jedoch nach außen von anderen Clustern deutlich unterscheiden.\seFootcite{Vgl.}{S. 3}{Anderberg.2014}}
+\seNewGlossaryEntry{clustering}{Clustering}{}{Das Clustering ist einer der Grundbausteine des Data Mining, welche das Ziel der Aufteilung der Daten in verschieden Gruppen verfolgt, wobei diese Gruppen, auch \textit{Cluster} genannt, zuvor nicht bekannt sind. Die Elemente eines solchen Clusters sollen nach Innen möglichst homogen sein, sich jedoch nach Außen von anderen Clustern deutlich unterscheiden.\seFootcite{Vgl.}{S. 3}{Anderberg.2014}}
 
 \seNewGlossaryEntry{regression}{Regression}{}{
-Um Daten durch eine Funktion zu approximieren, wird die Regression verwendet. Im Allgemeinen beinhaltet diese die Analyse einer abhängigen Variablen von einer oder mehreren unabhängigen Variablen, die durch eine Regressionsgleichung ausgedrückt werden. Die quadratischen Abstände zur Funktion werden dabei durch die \textit{Methode der kleinsten Quadrate} minimiert, sodass eine möglichst genaue Anpassung der Funktion an die Daten resultiert. In der Praxis haben sich eine Vielzahl verschiedener Regressionsmodelle etabliert, die je nach Anwendungsfall ihre Verwendung finden: \textit{lineare} Regression, \textit{nichtlineare} Regression, \textit{multiple} Regression, sowie die \textit{nichtparametrische} Regression.\seFootcite{Vgl.}{S. 68-94}{Gunther.2014}}
+Um Daten durch eine Funktion approximieren zu können, wird die Regression verwendet. Im Allgemeinen beinhaltet diese die Analyse einer abhängigen Variablen von einer oder mehreren unabhängigen Variablen, die durch eine Regressionsgleichung ausgedrückt werden. Die quadratischen Abstände zur Funktion werden dabei durch die \textit{Methode der kleinsten Quadrate} minimiert, sodass eine möglichst genaue Anpassung der Funktion an die Daten erfolgt. In der Praxis haben sich eine Vielzahl verschiedener Regressionsmodelle etabliert, die je nach Anwendungsfall ihre Verwendung finden: \textit{lineare} Regression, \textit{nichtlineare} Regression, \textit{multiple} Regression, sowie die \textit{nichtparametrische} Regression.\seFootcite{Vgl.}{S. 68-94}{Gunther.2014}}
 
 \seNewGlossaryEntry{outlier}{Outlier Detection}{}{Definition folgt}
 
