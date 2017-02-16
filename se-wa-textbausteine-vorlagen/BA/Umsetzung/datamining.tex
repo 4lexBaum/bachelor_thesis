@@ -30,7 +30,7 @@ Die Wertebereiche der Variablen (gleiches gilt für die Achsen) sind aus der Tra
 \item $ 0 \le$ Wahrscheinlichkeit $\le 1$
 \end{itemize}
 
-Stellt man die aggregierten Daten ohne eine angepasste Funktion dar, ergibt sich \vref{rowWD}, wobei die vorherige Einteilung der Daten in Raster deutlich wird. Jeder orangefarbene Punkt repräsentiert dabei in der Höhe die Wahrscheinlichkeit in Form der relativen Häufigkeit. Bereits in dieser vereinfachten Abbildung wird deutlich, dass ab einer bestimmten Distanz (ca. \textsf{40}) der Winkel keinen Einfluss mehr auf die Wahrscheinlichkeit eines Torerfolges hat. Mit Hilfe des \textit{multiplen} und des \textit{nichtparametrischen} Regressionsmodelles soll nachfolgend eine Funktion modelliert werden, die diese Punktewolke bestmöglich beschreibt, wobei das Bestimmtsheitsmaß (vgl. \vref{bhm}) eine objektive Aussage über die Anpassung des Modells an die Daten bietet.
+Stellt man die aggregierten Daten ohne eine angepasste Funktion dar, ergibt sich \vref{rowWD}, wobei die vorherige Einteilung der Daten in Raster deutlich wird. Jeder orangefarbene Punkt repräsentiert dabei in der Höhe die Wahrscheinlichkeit in Form der relativen Häufigkeit. Bereits in dieser vereinfachten Abbildung wird deutlich, dass ab einer bestimmten Distanz (ca. \textsf{40}) der Winkel keinen Einfluss mehr auf die Wahrscheinlichkeit eines Torerfolges hat. Mit Hilfe des \textit{multiplen} und des \textit{nichtparametrischen} Regressionsmodells soll nachfolgend eine Funktion modelliert werden, die diese Punktewolke bestmöglich beschreibt, wobei das Bestimmtsheitsmaß (vgl. \vref{bhm}) eine objektive Aussage über die Anpassung des Modells an die Daten bietet.
 
 \begin{figure}[H]
 \centering
@@ -67,7 +67,7 @@ Wie zu erkennen ist, unterstützt MATLAB die Polynomfunktionen bis zum fünften 
 \label{plotWD}
 \end{figure}
 
-Die Polynomfunktion ist sehr glatt modelliert und geht teilweise sogar in den negativen Wertebereich der Wahrscheinlichkeit, wie beispielsweise zwischen den Distanzen \textsf{40} und \textsf{60}. Diese Tatsache ist aus Sicht des Sinnes der Daten nicht tragbar, da große Flächen der Funktion eine negative Wahrscheinlichkeit repräsentieren, welche in der Realität nicht existieren können und folglich auch nicht im Modell. Die Bestimmtheitsmaße aus \vref{tab:gofmrwd} bestätigen diesen Eindruck mit relativ schlechten Werten für die Anpassung des Modelles an die Daten.
+Die Polynomfunktion ist sehr glatt modelliert und geht teilweise sogar in den negativen Wertebereich der Wahrscheinlichkeit, wie beispielsweise zwischen den Distanzen \textsf{40} und \textsf{60}. Diese Tatsache ist aus Sicht des Sinnes der Daten nicht tragbar, da große Flächen der Funktion eine negative Wahrscheinlichkeit repräsentieren, welche in der Realität nicht existieren können und folglich auch nicht im Modell. Die Bestimmtheitsmaße aus \vref{tab:gofmrwd} bestätigen diesen Eindruck mit relativ schlechten Werten für die Anpassung des Modells an die Daten.
 
 %%%%%%%%%%%%%%%%%% Tabelle GOFMRWD %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{2}{|c|}{\textbf{Goodness of Fit}}\\\hline}
@@ -209,7 +209,7 @@ Die Bestimmtheitsmaße dieser Modellierung aus \vref{tab:gofmrk} bestärken in e
 
 \subsubsection{Nichtparametrische Regression}
 
-Zur Umsetzung der \textit{nichtparametrischen} Regression wird wie innerhalb der Winkel- und Distanzbetrachtung (vgl. \vref{span}) die \gls{lowess}-Methode mit einem Span-Wert von \textsf{3\%} verwendet. Mit diesem Wert konnte eine gute Balance zwischen einem Under- bzw. Overfitting des Modelles erreicht werden. Dieser wurde letztlich durch mehrere iterative Annäherungen als optimalen Wert ausgewählt, wozu\enlargethispage{2\baselineskip} das Ergebnis dieser Modellierung in \vref{splinek} abgebildet ist.
+Zur Umsetzung der \textit{nichtparametrischen} Regression wird wie innerhalb der Winkel- und Distanzbetrachtung (vgl. \vref{span}) die \gls{lowess}-Methode mit einem Span-Wert von \textsf{3\%} verwendet. Mit diesem Wert konnte eine gute Balance zwischen einem Under- bzw. Overfitting des Modells erreicht werden. Dieser wurde letztlich durch mehrere iterative Annäherungen als optimalen Wert ausgewählt, wozu\enlargethispage{2\baselineskip} das Ergebnis dieser Modellierung in \vref{splinek} abgebildet ist.
 
 \begin{figure}[H]
 \centering
@@ -218,7 +218,7 @@ Zur Umsetzung der \textit{nichtparametrischen} Regression wird wie innerhalb der
 \label{splinek}
 \end{figure}
 
-Aus der Abbildung lässt sich entnehmen, dass die Funktion innerhalb der angegebenen Wertebereiche keine negativen Wahrscheinlichkeiten annimmt, sowie den Bereich des gegnerischen Strafraums relativ exakt modelliert, wodurch der angesprochene \glqq Gipfel\grqq~ widergespiegelt wird. \vref{tab:gofnrk} bestätigt diese Annahmen mit sehr guten Werten der Bestimmtheitsmaße, die für eine genaue Anpassung des Modelles an die Daten sprechen.
+Aus der Abbildung lässt sich entnehmen, dass die Funktion innerhalb der angegebenen Wertebereiche keine negativen Wahrscheinlichkeiten annimmt, sowie den Bereich des gegnerischen Strafraums relativ exakt modelliert, wodurch der angesprochene \glqq Gipfel\grqq~ widergespiegelt wird. \vref{tab:gofnrk} bestätigt diese Annahmen mit sehr guten Werten der Bestimmtheitsmaße, die für eine genaue Anpassung des Modells an die Daten sprechen.
 
 %%%%%%%%%%%%%%%%%% Tabelle GOFNRK %%%%%%%%%%%%%%%%%%
 \tablefirsthead{\hline\multicolumn{2}{|c|}{\textbf{Goodness of Fit}}\\\hline}
