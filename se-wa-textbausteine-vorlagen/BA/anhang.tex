@@ -9,7 +9,9 @@
 \label{xmldaten}
 \end{figure}
 
-Die \vref{xmldaten} zeigt einen Ausschnitt aus der XML-Datei in der alle Events eines Spiels aufzeichnet sind. Im oberen Teil sind die Mannschaftsaufstellungen zu sehen, wobei jeder Spieler eine eigene ID besitzt. Darunter folgt gelb markiert zum Anpfiff der Partie der erste Pass mit dem \textit{Outcome} 1, welcher einen erfolgreichen Pass identifiziert. 
+Die \vref{xmldaten} zeigt einen Ausschnitt aus der XML-Datei in der alle Events eines Spiels aufzeichnet sind. Im oberen Teil sind die Mannschaftsaufstellungen zu sehen, wobei jeder Spieler eine eigene ID besitzt. Darunter folgt gelb markiert zum Anpfiff der Partie der erste Pass mit dem \textit{Outcome} 1, welcher einen erfolgreichen Pass identifiziert.
+
+In \vref{lines} wird das Problem der weißen Linien aufzeigt. Mit Hilfe der Darstellung aller Pässe wird deutlich, dass der weiße Ball auf der weißen Linie nicht immer genau von der Videoverarbeitung erfasst wird. 
 
 \begin{sidewaysfigure}
 \centering
@@ -26,6 +28,10 @@ Die \vref{xmldaten} zeigt einen Ausschnitt aus der XML-Datei in der alle Events 
 \caption{Ausschluss der Interpolation}
 \label{inter}
 \end{figure}
+
+Durch die Visualisierung der Methode der Interpolation in \vref{inter}, kann diese aufgrund der fehlenden Abstraktion bei der Modellierung ausgeschlossen werden.
+
+Die Wahl des Span-Wertes und die damit verbundene Schwierigkeit der Balancierung zwischen Under- und Overfitting wird in \vref{splinewdTM} und in \vref{splinewdTL} dargestellt.
 
 \begin{figure}[H]
 \centering
@@ -56,7 +62,7 @@ unter der Betrachtung der Zusammenhänge zwischen:
 
 \begin{itemize}
 \item erwarteten Anzahl an \textbf{Gegentoren} gegenüber der tatsächlichen erhaltenen Anzahl an \textbf{Gegentoren}
-\item erwarteten Anzahl an \textbf{Toren} gegenüber der tatsächlichen erzielten Anzahl an\textbf{Gegentoren}
+\item erwarteten Anzahl an \textbf{Toren} gegenüber der tatsächlichen erzielten Anzahl an \textbf{Gegentoren}
 \item erwarteten Anzahl an \textbf{Punkten} gegenüber der tatsächlichen gewonnen Anzahl an \textbf{Punkten}
 \end{itemize}
 

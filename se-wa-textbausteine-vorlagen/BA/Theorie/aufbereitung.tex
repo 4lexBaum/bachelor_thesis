@@ -83,7 +83,7 @@ Bei falschen bzw. inkonsistenten Daten ergeben sich prinzipiell zwei Möglichkei
 
 \subsubsection{Data Integration}
 \label{di}
-Bei Data-Mining-Projekten ist oftmals die Integration mehrerer Datenbestände aus unterschiedlichen Quellen erforderlich. Diese Phase sollte mit äußerster Sorgfalt durchgeführt werden, um frühzeitig redundante und inkonsistente Datensätze zu vermeiden, wodurch die Genauigkeit und Geschwindigkeit der nachfolgenden Data Mining Algorithmen nicht gefährdet wird.\seFootcite{Vgl.}{S. 93-94}{Han.2012} Folgende Punkte gilt es bei der Datenintegration zu beachten:
+Bei Data-Mining-Projekten ist oftmals die Integration mehrerer Datenbestände aus unterschiedlichen Quellen erforderlich. Diese Phase sollte mit äußerster Sorgfalt durchgeführt werden, um frühzeitig redundante und inkonsistente Datensätze zu vermeiden, wodurch die Genauigkeit und Geschwindigkeit der nachfolgenden Data Mining Algorithmen nicht gefährdet wird.\seFootcite{Vgl.}{S. 93-94}{Han.2012}\enlargethispage{\baselineskip} Folgende Punkte gilt es bei der Datenintegration zu beachten:
 
 \begin{itemize}
 \item \textbf{Identifikationsproblem von Entitäten}:
@@ -93,7 +93,7 @@ Bei Data-Mining-Projekten ist oftmals die Integration mehrerer Datenbestände au
 \\ Ein Attribut, welches durch ein anderes Attribut ableitbar ist -- wie zum Beispiel das Alter vom Geburtsjahr berechnet werden kann -- wird als redundant bezeichnet. Die Vielzahl von Redundanzen führt zu unnötig großen Datenmengen, die wiederum die Performanz sowie die Resultate eines Data Mining Algorithmus negativ beeinträchtigen können.\seFootcite{Vgl.}{S.41}{Garcia.2015} Folglich sollte diese Problematik durch die Anwendung von statistischen Verfahren, in Form der Korrelationsanalyse, dezidiert behandelt werden. Für numerische Werte ist dabei der Einsatz von Korrelationskoeffizienten und Kovarianzen hilfreich. Um die Implikation zweier Attribute einer nominalen Datenmenge\footnote{Rein qualitative Merkmalsausprägungen ohne natürliche Rangordnung (wie z.B. das Geschlecht).} bestimmen zu können, verwendet man in der Regel den $\chi^2$(\textit{Chi-Quadrate})-Test.\seFootcite{Vgl.}{S. 95.}{Han.2012}\seFootcite{Vgl.}{S. 41}{Garcia.2015}\seFootcite{Vgl.}{S. 64}{Cleve.2014} 
 
 \item \textbf{Duplikatserkennung}:
-\\ Duplikate verkörpern Redundanzen auf Datensatzebene und führen einerseits zu unnötig großen Datenmengen, die sich wiederum auf die Performanz der Algorithmen auswirken. Andererseits führt jedoch auch die verfälschte Gewichtung der mehrfach vorkommenden Datensätze, zu falschen Analyseergebnissen. Ein häufiger Grund stellt dabei die Verwendung von denormalisierten Datenbanktabellen dar.\seFootcite{Vgl.}{S. 98}{Han.2012}\seFootcite{Vgl.}{S. 43}{Garcia.2015}
+\\ Duplikate verkörpern Redundanzen auf Datensatzebene und führen einerseits zu unnötig großen Datenmengen, die sich wiederum auf die Performanz der Algorithmen auswirken. Andererseits führt jedoch auch die verfälschte Gewichtung der mehrfach vorkommenden Datensätze, zu falschen Analyseergebnissen.\enlargethispage{\baselineskip} Ein häufiger Grund stellt dabei die Verwendung von denormalisierten Datenbanktabellen dar.\seFootcite{Vgl.}{S. 98}{Han.2012}\seFootcite{Vgl.}{S. 43}{Garcia.2015}
 
 \item \textbf{Konflikte bei Attributswerten}:
 \\ Hierbei handelt es sich um die unterschiedliche Darstellung, Skalierung und Kodierung von Attributswerten. Beispielsweise kann das Attribut \textit{Gewicht} durch das metrische System oder das britische Maßsystem repräsentiert werden, woraus bei der Zusammenführung von Daten in eine einheitliche Quelle immer wieder Konflikte resultieren.\seFootcite{Vgl.}{S. 99}{Han.2012}\seFootcite{Vgl.}{S. 199}{Cleve.2014} 
@@ -118,7 +118,7 @@ Hierbei bleiben irrelevante Attribute des Datensatzes unberücksichtigt und nur 
 
 \paragraph{Datenkompression}
 \label{datenkompression}
-Bei dieser Technik wird durch Transformation oder Codierung versucht, eine Reduktion der Datenmenge zu erreichen. Fasst man beispielsweise die einzelnen Attribute \textit{Tag, Monat und Jahr} zu einem neuen Attribut \textit{Datum} zusammen, können Datensätze komprimiert werden.\seFootcite{Vgl.}{S. 207}{Cleve.2014}
+\enlargethispage{2\baselineskip}Bei dieser Technik wird durch Transformation oder Codierung versucht, eine Reduktion der Datenmenge zu erreichen. Fasst man beispielsweise die einzelnen Attribute \textit{Tag, Monat und Jahr} zu einem neuen Attribut \textit{Datum} zusammen, können Datensätze komprimiert werden.\seFootcite{Vgl.}{S. 207}{Cleve.2014}
  
 \paragraph{Numerische Datenreduktion}
 Anstatt die gesamte Datenmenge für die Analyse heranzuziehen, wird innerhalb der numerischen Datenreduktion eine repräsentative Teilmenge -- in Form einer Stichprobe -- für das \gls{dm} genutzt. Im Vordergrund steht hierbei die passende Auswahl unterschiedlicher Stichprobeverfahren, wie der \textit{zufälligen Stichprobe} oder der \textit{repräsentativen Stichprobe}, woraus jedoch kein verzerrtes Abbild der Daten resultieren darf.\seFootcite{Vgl.}{S. 25-27}{Fahrmeir.2007}\seFootcite{Vgl.}{S. 207}{Cleve.2014}
